@@ -1,0 +1,5 @@
+/* Git based project framework */
+	Developer: Dave Bowker
+	Twitter: @davebowker
+	Web: http://davebowker.com
+	Git: http://github.com/davebowker/guts
