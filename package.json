@@ -1,24 +1,16 @@
 {
-	"name": "initialSetup",
-	"description": "Inital site setup installing grunt and bower as a starting point. From grunt you can setup the project how you like, WordPress or Bootstrap based for now.",
-	"author": "Dave Bowker (@davebowker)",
-	"dependencies": {
-	},
-	"devDependencies": {
-		"grunt-cli": "*",
-		"grunt": "*",
-		"bower": "*",
-		"grunt-contrib-copy": "*"
-//		,
-//		"grunt-contrib-compass": "~0.6.0",
-//		"grunt-contrib-imagemin": "~0.3.0",
-//		"grunt-contrib-jshint": "~0.6.4",
-//		"grunt-contrib-uglify": "~0.2.4",
-//		"grunt-contrib-watch": "~0.5.3",
-//		"grunt-rsync": "~0.2.1"
-	},
-	"repository" : {
-		"type" : "git",
-		"url" : "http://github.com/davebowker/guts.git"
-	}
+  "name": "initialSetup",
+  "description": "Inital site setup installing grunt and bower as a starting point. From grunt you can setup the project how you like, WordPress or Bootstrap based for now.",
+  "author": "Dave Bowker @davebowker",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt-cli": "*",
+    "grunt": "*",
+    "bower": "*",
+    "grunt-contrib-copy": "~0.4.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/davebowker/guts.git"
+  }
 }
