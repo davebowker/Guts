@@ -23,7 +23,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	
 	// Define grunt tasks
-	grunt.registerTask('setupWordPress', ['copy', 'clean']);
+	grunt.registerTask('setupWordPress', ['copy']);
 	
 	// We want to disable default grunt for now
 	//grunt.registerTask('default', []);
