@@ -3,3 +3,4 @@
 	Twitter: @davebowker
 	Web: http://davebowker.com
 	Git: http://github.com/davebowker/guts
+	Location: London, UK
