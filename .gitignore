@@ -1,4 +1,12 @@
 #################
+## Files and Folders
+#################
+node_modules
+bower_components
+.sass-cache
+
+
+#################
 ## Eclipse
 #################
 

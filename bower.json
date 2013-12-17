@@ -1,0 +1,7 @@
+{
+  "name": "Guts Setup",
+  "version": "0.1",
+  "dependencies": {
+    "wordpress": "https://github.com/WordPress/WordPress.git"
+  }
+}
