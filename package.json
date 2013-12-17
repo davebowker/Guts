@@ -4,10 +4,12 @@
   "author": "Dave Bowker @davebowker",
   "dependencies": {},
   "devDependencies": {
+    "bower": "*",
     "grunt-cli": "*",
     "grunt": "*",
-    "bower": "*",
-    "grunt-contrib-copy": "~0.4.1"
+    "grunt-contrib-copy": "*",
+    "grunt-contrib-clean": "*",
+    "grunt-contrib-compass": "*"
   },
   "repository": {
     "type": "git",

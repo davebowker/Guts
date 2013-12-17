@@ -5,19 +5,25 @@ module.exports = function(grunt) {
 		pkg: grunt.file.readJSON('package.json'),
 		copy: {
 			moveWordPress: {
-				src: 'wordpress/*',
+				src: 'wordpress/**',
 				dest: 'app/',
 				expand: true,
 				cwd: 'bower_components'
+			}
+		},
+		clean: {
+			deleteBowerWordPress: {
+				src: 'bower_components/wordpress'
 			}
 		}
 	});
 	
 	// Load grunt packages
 	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-contrib-clean');
 	
 	// Define grunt tasks
-	grunt.registerTask('setupWordPress', ['copy']);
+	grunt.registerTask('setupWordPress', ['copy', 'clean']);
 	
 	// We want to disable default grunt for now
 	//grunt.registerTask('default', []);

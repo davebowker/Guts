@@ -1,0 +1,14 @@
+{
+  "name": "wordpress",
+  "homepage": "https://github.com/WordPress/WordPress",
+  "version": "3.7.1",
+  "_release": "3.7.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "3.7.1",
+    "commit": "8542a130d4801ac6b26c1b1f3169af44eafdda41"
+  },
+  "_source": "https://github.com/WordPress/WordPress.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/WordPress/WordPress.git"
+}
