@@ -15,14 +15,14 @@ module.exports = function(grunt) {
 					cwd: 'bower_components',
 					src: 'wordpress/**',
 					dest: 'app/'
-				},
-				// Copy wp-content
-				{
-					expand: true,
-					cwd: 'bower_components/wordpress',
-					src: 'wp-content/**',
-					dest: 'app'
 				}
+				// Copy wp-content
+//				{
+//					expand: true,
+//					cwd: 'bower_components/wordpress',
+//					src: 'wp-content/**',
+//					dest: 'app'
+//				}
 				// includes files within path and its sub-directories
 				//{expand: true, src: ['path/**'], dest: 'dest/'},
 				
@@ -35,9 +35,12 @@ module.exports = function(grunt) {
 		],
 		// Remove bower copy of wordpress
 		clean: {
-			deleteBowerWordPress: {
-				src: 'bower_components/wordpress'
-			}
+            removeWpConfigSample: {
+                src: 'app/wordpress/wp-config-sample.php'
+            }
+//			,bowerCleanHouse: {
+//				src: 'bower_components'
+//			}
 		}
 	});
 	
@@ -47,8 +50,8 @@ module.exports = function(grunt) {
 	
 	// Define grunt tasks
 	grunt.registerTask ('setupWordPress', function() {
-		grunt.file.write("app/index.php", '<?php define(\'WP_USE_THEMES\',true);require(dirname(__FILE__).\'/wordpress/wp-blog-header.php\');');
-		grunt.task.run('copy');
+		//grunt.file.write("app/index.php", '<?php define(\'WP_USE_THEMES\',true);require(dirname(__FILE__).\'/wordpress/wp-blog-header.php\');');
+		grunt.task.run('copy','clean');
 	});	
 	//grunt.registerTask('setupWordPress', ['copy']);
 	

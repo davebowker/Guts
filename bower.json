@@ -18,6 +18,8 @@
 	
 	"dependencies": {
 		"wordpress": "*",
-		"gutsWordPressTheme": "https://github.com/davebowker/Guts-WordPress-Theme.git"
+		"gutsWordPressTheme": "https://github.com/davebowker/Guts-WordPress-Theme.git",
+        "hashgrid": "*",
+        "jquery": "*"
 	}
 }

@@ -6,7 +6,7 @@ bower_components
 .sass-cache
 app/wordpress
 app/wp-content
-
+app/wp-config.php
 
 #################
 ## Eclipse
