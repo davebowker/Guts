@@ -4,7 +4,8 @@
 node_modules
 bower_components
 .sass-cache
-wordpress
+app/wordpress
+app/wp-content
 
 
 #################
