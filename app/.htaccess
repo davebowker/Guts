@@ -1,0 +1,8 @@
+##RewriteEngine On
+##RewriteCond %{HTTP_HOST} $
+##RewriteRule ^(/)?$ app [L]
+
+##RewriteCond %{REQUEST_URI} !^/myfolder
+##RewriteRule ^/?([^/]+)$ /myfolder/$1 [L]
+
+##DirectoryIndex index.php index.html

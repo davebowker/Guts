@@ -1,7 +1,18 @@
 {
-  "name": "initialSetup",
-  "description": "Inital site setup installing grunt and bower as a starting point. From grunt you can setup the project how you like, WordPress or Bootstrap based for now.",
-  "author": "Dave Bowker @davebowker",
+  "name": "setupGuts",
+  "description": "The initial setup of Guts will load packages for Grunt and Bower which will initialise your dev environment. From this starting point you can customise it however you like.",
+  "author": "Dave Bowker <guts@davebowker.com> (http://twitter.com/davebowker)",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/davebowker/Guts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/davebowker/Guts/issues"
+  },
+  "homepage": "https://github.com/davebowker/Guts",
+  "version": "0.1.0",
+  "main": "Gruntfile.js",
+  "license": "BSD-2-Clause",
   "dependencies": {},
   "devDependencies": {
     "bower": "*",
@@ -10,9 +21,5 @@
     "grunt-contrib-copy": "*",
     "grunt-contrib-clean": "*",
     "grunt-contrib-compass": "*"
-  },
-  "repository": {
-    "type": "git",
-    "url": "http://github.com/davebowker/guts.git"
   }
 }
