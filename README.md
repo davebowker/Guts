@@ -1,4 +1,3 @@
-guts Theme Starter for WordPress
-====
+Guts is a starter environment for your projects 
 
-A default WordPress starter theme
+More information forthcoming.
