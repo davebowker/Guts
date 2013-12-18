@@ -17,6 +17,12 @@ module.exports = function(grunt) {
 				},
 				{
 					expand: true,
+					cwd: 'bower_components/wordpress',
+					src: 'wp-config-sample.php',
+					dest: 'app/'
+				},
+				{
+					expand: true,
 					cwd: 'bower_components',
 					src: 'gutsWordPressTheme/**',
 					dest: 'app/wp-content/themes/'
@@ -30,8 +36,9 @@ module.exports = function(grunt) {
                 'app/wp-content/themes/twentyeleven',
                 'app/wp-content/themes/twentytwelve'
             ],
-			bowerCleanHouse: [
-				'bower_components/wordpress'
+			bower: [
+				'bower_components/wordpress',
+				'bower_components/gutsWordPressTheme'
             ]
 		}
 	});
@@ -41,9 +48,9 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	
 	// Define grunt tasks
-	grunt.registerTask ('setupWordPress', function() {
+	grunt.registerTask ('wordpress', function() {
 		grunt.file.write("app/index.php", '<?php define(\'WP_USE_THEMES\',true);require(dirname(__FILE__).\'/wordpress/wp-blog-header.php\');');
-		grunt.task.run('copy','clean');
+		grunt.task.run('copy', 'clean');
 	});	
 	
 	// We want to disable default grunt for now, so provide a nice message
