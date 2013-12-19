@@ -5,7 +5,6 @@ node_modules
 bower_components
 .sass-cache
 app/wordpress
-app/wp-content
 app/wp-config.php
 sitemap.xml
 sitemap.xml.gz
