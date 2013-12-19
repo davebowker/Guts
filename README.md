@@ -1,3 +1,4 @@
-Guts is a starter environment for your projects 
+Guts
+====================
 
-More information forthcoming.
+The Guts
