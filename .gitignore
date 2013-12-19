@@ -1,5 +1,5 @@
 #################
-## Files and Folders
+## Guts Custom
 #################
 node_modules
 bower_components
@@ -7,6 +7,12 @@ bower_components
 app/wordpress
 app/wp-content
 app/wp-config.php
+sitemap.xml
+sitemap.xml.gz
+
+#################
+## Git Recommended
+#################
 
 #################
 ## Eclipse
