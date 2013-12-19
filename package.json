@@ -20,6 +20,9 @@
     "grunt": "*",
     "grunt-contrib-copy": "*",
     "grunt-contrib-clean": "*",
-    "grunt-contrib-compass": "*"
+    "grunt-contrib-compass": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-contrib-uglify": "*",
+    "compass": "~0.1.0"
   }
 }

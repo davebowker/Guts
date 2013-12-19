@@ -40,18 +40,37 @@ module.exports = function(grunt) {
 				'bower_components/wordpress',
 				'bower_components/gutsWordPressTheme'
             ]
-		}
+		},
+        compass: {
+            dev: {
+                options: {
+                    environment: 'development',
+                    outputStyle: 'expanded',
+                    relativeAssets: true,
+                    basePath: 'app/wp-content/themes/gutsWordPressTheme',
+                    cssDir: 'stylesheets',
+                    sassDir: 'sass',
+                    imagesDir: 'img',
+                    javascriptsDir: 'js',
+                    fontsDir: 'font',
+                    noLineComments: true,
+                    force: true
+                }
+            }
+        }
 	});
 	
 	// Load grunt packages
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.loadNpmTasks('grunt-contrib-compass');
 	
 	// Define grunt tasks
-	grunt.registerTask ('wordpress', function() {
+	grunt.registerTask ('setupwordpress', function() {
 		grunt.file.write("app/index.php", '<?php define(\'WP_USE_THEMES\',true);require(dirname(__FILE__).\'/wordpress/wp-blog-header.php\');');
 		grunt.task.run('copy', 'clean');
-	});	
+	});
+    grunt.registerTask('setupcompass', 'compass');
 	
 	// We want to disable default grunt for now, so provide a nice message
 	grunt.registerTask('default', 'My "default" task description.', function() {
