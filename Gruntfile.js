@@ -18,15 +18,15 @@ module.exports = function(grunt) {
 				{
 					expand: true,
 					cwd: 'bower_components/wordpress',
-					src: 'wp-config-sample.php',
+					src: 'wp-content/**',
 					dest: 'app/'
 				},
 				{
 					expand: true,
-					cwd: 'bower_components',
-					src: 'gutsWordPressTheme/**',
-					dest: 'app/wp-content/themes/'
-				}			
+					cwd: 'bower_components/wordpress',
+					src: 'wp-config-sample.php',
+					dest: 'app/'
+				}
 		],
 		clean: {
             wordpress: [
