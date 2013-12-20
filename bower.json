@@ -19,6 +19,7 @@
 	"dependencies": {
 		"wordpress": "*",
         "hashgrid": "*",
-        "jquery": "*"
+        "jquery": "*",
+        "guts": "https://github.com/davebowker/Guts-WordPress-Theme.git"
 	}
 }
