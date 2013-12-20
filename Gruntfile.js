@@ -37,8 +37,7 @@ module.exports = function(grunt) {
                 'app/wp-content/themes/twentytwelve'
             ],
 			bower: [
-				'bower_components/wordpress',
-				'bower_components/gutsWordPressTheme'
+				'bower_components'
             ]
 		},
         compass: {
