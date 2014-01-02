@@ -32,7 +32,8 @@ module.exports = function(grunt) {
 		},
 		clean : {
 			// WordPress
-			wp : ['app/wordpress/wp-config-sample.php', 'app/wp-content/plugins/hello.php', 'app/wp-content/themes/twentyten', 'app/wp-content/themes/twentyeleven', 'app/wp-content/themes/twentytwelve']
+			wp : ['app/wordpress/wp-config-sample.php', 'app/wp-content/plugins/hello.php', 'app/wp-content/themes/twentyten', 'app/wp-content/themes/twentyeleven', 'app/wp-content/themes/twentytwelve'],
+			wpconfig: ['app/wp-config-sample.php']
 		},
 		compass : {
 			wp : {
@@ -107,7 +108,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('wpsass', ['compass:wp', 'watch:wp']);
 	// Dynamically add necessary paths to wp-config.php. You will need to edit this.
 	grunt.registerTask('wpconfig', function() {
-		grunt.task.run('replace:wpconfig');
+		grunt.task.run('replace:wpconfig', 'clean:wpconfig');
 		grunt.log.write('Guts has dynamically added new lines to the top of your wp-config.php file in the app folder. You will need to edit these lines. Please do this now./');
 	});
 
