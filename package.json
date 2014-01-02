@@ -21,9 +21,10 @@
     "grunt-contrib-copy": "*",
     "grunt-contrib-clean": "*",
     "grunt-contrib-compass": "*",
-    "grunt-contrib-watch": "*",
+    "grunt-contrib-watch": "~0.5.3",
     "compass": "*",
     "bourbon": "*",
-    "grunt-text-replace": "~0.3.10"
+    "grunt-text-replace": "~0.3.10",
+    "grunt-contrib-uglify": "~0.2.7"
   }
 }

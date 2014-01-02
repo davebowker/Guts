@@ -2,6 +2,13 @@ module.exports = function(grunt) {
 
 	// Set UTF-8 Charset
 	grunt.file.defaultEncoding = 'utf8';
+	
+	// Load grunt packages
+	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.loadNpmTasks('grunt-contrib-compass');
+	grunt.loadNpmTasks('grunt-text-replace');
+	grunt.loadNpmTasks('grunt-contrib-watch');
 
 	// Set our instructions
 	grunt.initConfig({
@@ -10,22 +17,6 @@ module.exports = function(grunt) {
 		copy : {
 			// WordPress
 			wp : {
-				// files : [{
-					// expand : true,
-					// cwd : 'app/wordpress',
-					// src : 'wordpress/**',
-					// dest : 'app/'
-				// }, {
-					// expand : true,
-					// cwd : 'bower_components/wordpress',
-					// src : 'wp-content/**',
-					// dest : 'app/'
-				// }, {
-					// expand : true,
-					// cwd : 'bower_components/wordpress',
-					// src : 'wp-config-sample.php',
-					// dest : 'app/'
-				// }]
 				files : [{
 					expand : true,
 					cwd : 'app/wordpress',
@@ -60,6 +51,26 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+		watch: {
+			// Watch our sass files and auto compile them
+			wp: {					
+				files: ['app/wp-content/themes/gutsThemeStarter/sass/**.*'],
+				tasks: ['compass:wp']
+			},
+			// Watch our js files and auto compile them
+			// js: {
+				// files: ['assets/js/main.js', 'components/**/*.js'],
+				// tasks: ['uglify']
+			// },
+			// Watch our files for any changes, then automatically reload the page
+			// Requires livereload chrome extension, or equivalent
+			livereload: {
+				files: ['app/wp-content/themes/gutsThemeStarter/css/*.*'],
+				options: {
+					livereload: true
+				}
+			}
+		},
 		replace: {
 			wpconfig: {
 				src: ['app/wp-config.php'],
@@ -84,18 +95,17 @@ module.exports = function(grunt) {
 		}
 	});
 
-	// Load grunt packages
-	grunt.loadNpmTasks('grunt-contrib-copy');
-	grunt.loadNpmTasks('grunt-contrib-clean');
-	grunt.loadNpmTasks('grunt-contrib-compass');
-	grunt.loadNpmTasks('grunt-text-replace');
-
-	// Define grunt tasks
+	/*
+	 * Define Grunt Tasks
+	 */
+	// Set up wordpress, copy across wp-content and create index.php and wp-config-sample.php
 	grunt.registerTask('wp', function() {
 		grunt.file.write("app/index.php", '<?php define(\'WP_USE_THEMES\',true);require(dirname(__FILE__).\'/wordpress/wp-blog-header.php\');');
 		grunt.task.run('copy:wp', 'clean:wp');
 	});
-	grunt.registerTask('wpsass', 'compass');
+	// Compile styles, and watch for changes
+	grunt.registerTask('wpsass', ['compass:wp', 'watch:wp']);
+	// Dynamically add necessary paths to wp-config.php. You will need to edit this.
 	grunt.registerTask('wpconfig', function() {
 		grunt.task.run('replace:wpconfig');
 		grunt.log.write('Guts has dynamically added new lines to the top of your wp-config.php file in the app folder. You will need to edit these lines. Please do this now./');
