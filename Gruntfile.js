@@ -35,7 +35,7 @@ module.exports = function(grunt) {
 					expand : true,
 					cwd : 'app/wordpress',
 					src : 'wp-config-sample.php',
-					dest : 'app/test'
+					dest : 'app'
 				}]
 			}
 		},
