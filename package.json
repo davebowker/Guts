@@ -22,8 +22,8 @@
     "grunt-contrib-clean": "*",
     "grunt-contrib-compass": "*",
     "grunt-contrib-watch": "*",
-    "grunt-contrib-uglify": "*",
-    "compass": "~0.1.0",
-    "bourbon": "0.0.2"
+    "compass": "*",
+    "bourbon": "*",
+    "grunt-text-replace": "~0.3.10"
   }
 }
