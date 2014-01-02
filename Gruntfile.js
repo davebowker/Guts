@@ -44,12 +44,12 @@ module.exports = function(grunt) {
 			wp : ['app/wordpress/wp-config-sample.php', 'app/wp-content/plugins/hello.php', 'app/wp-content/themes/twentyten', 'app/wp-content/themes/twentyeleven', 'app/wp-content/themes/twentytwelve']
 		},
 		compass : {
-			dev : {
+			wp : {
 				options : {
 					environment : 'development',
 					outputStyle : 'expanded',
 					relativeAssets : true,
-					basePath : 'app/wp-content/themes/guts',
+					basePath : 'app/wp-content/themes/gutsThemeStarter',
 					cssDir : 'css',
 					sassDir : 'sass',
 					imagesDir : 'img',

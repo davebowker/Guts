@@ -1,9 +1,6 @@
 [submodule "app/wordpress"]
 	path = app/wordpress
 	url = https://github.com/WordPress/WordPress.git
-[submodule "app/wp-content/themes/test"]
-	path = app/wp-content/themes/test
-	url = https://github.com/davebowker/Guts-WordPress-Theme.git
 [submodule "app/wp-content/themes/gutsThemeStarter"]
 	path = app/wp-content/themes/gutsThemeStarter
 	url = https://github.com/davebowker/Guts-WordPress-Theme.git
