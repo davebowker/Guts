@@ -10,35 +10,38 @@ module.exports = function(grunt) {
 		copy : {
 			// WordPress
 			wp : {
+				// files : [{
+					// expand : true,
+					// cwd : 'app/wordpress',
+					// src : 'wordpress/**',
+					// dest : 'app/'
+				// }, {
+					// expand : true,
+					// cwd : 'bower_components/wordpress',
+					// src : 'wp-content/**',
+					// dest : 'app/'
+				// }, {
+					// expand : true,
+					// cwd : 'bower_components/wordpress',
+					// src : 'wp-config-sample.php',
+					// dest : 'app/'
+				// }]
 				files : [{
 					expand : true,
-					cwd : 'bower_components',
-					src : 'wordpress/**',
-					dest : 'app/'
-				}, {
-					expand : true,
-					cwd : 'bower_components/wordpress',
+					cwd : 'app/wordpress',
 					src : 'wp-content/**',
-					dest : 'app/'
+					dest : 'app'
 				}, {
 					expand : true,
-					cwd : 'bower_components/wordpress',
+					cwd : 'app/wordpress',
 					src : 'wp-config-sample.php',
-					dest : 'app/'
-				}]
-			},
-			wptheme : {
-				files : [{
-					expand : true,
-					cwd : 'bower_components',
-					src : 'gutstheme/**',
-					dest : 'app/wp-content/themes'
+					dest : 'app/test'
 				}]
 			}
 		},
 		clean : {
 			// WordPress
-			wp : ['app/wordpress/wp-config-sample.php', 'app/wp-content/plugins/hello.php', 'app/wp-content/themes/twentyten', 'app/wp-content/themes/twentyeleven', 'app/wp-content/themes/twentytwelve']
+			wp : ['app/wp-content/plugins/hello.php', 'app/wp-content/themes/twentyten', 'app/wp-content/themes/twentyeleven', 'app/wp-content/themes/twentytwelve']
 		},
 		compass : {
 			dev : {
@@ -67,7 +70,7 @@ module.exports = function(grunt) {
 	// Define grunt tasks
 	grunt.registerTask('wp', function() {
 		grunt.file.write("app/index.php", '<?php define(\'WP_USE_THEMES\',true);require(dirname(__FILE__).\'/wordpress/wp-blog-header.php\');');
-		grunt.task.run('copy:wp', 'copy:wptheme', 'clean:wp');
+		grunt.task.run('copy:wp');
 	});
 	grunt.registerTask('wpsass', 'compass');
 
