@@ -50,6 +50,24 @@ module.exports = function(grunt) {
 					noLineComments : true,
 					force : true
 				}
+			},
+			/*
+			 * TODO: Update production settings
+			 */
+			wpproduction : {
+				options : {
+					environment : 'production',
+					outputStyle : 'compressed',
+					relativeAssets : false,
+					basePath : 'app/wp-content/themes/gutsThemeStarter',
+					cssDir : 'css',
+					sassDir : 'sass',
+					imagesDir : 'img',
+					javascriptsDir : 'js',
+					fontsDir : 'font',
+					noLineComments : true,
+					force : true
+				}
 			}
 		},
 		watch: {
@@ -66,7 +84,7 @@ module.exports = function(grunt) {
 			// Watch our files for any changes, then automatically reload the page
 			// Requires livereload chrome extension, or equivalent
 			livereload: {
-				files: ['app/wp-content/themes/gutsThemeStarter/css/*.*'],
+				files: ['app/wp-content/themes/gutsThemeStarter/css/*.css'],
 				options: {
 					livereload: true
 				}
@@ -110,6 +128,9 @@ module.exports = function(grunt) {
 	grunt.registerTask('wpconfig', function() {
 		grunt.task.run('replace:wpconfig', 'clean:wpconfig');
 		grunt.log.write('Guts has dynamically added new lines to the top of your wp-config.php file in the app folder. You will need to edit these lines. Please do this now./');
+	});
+	grunt.registerTask('wpproduction', function() {
+		grunt.task.run('compass:wpproduction');
 	});
 
 	// We want to disable default grunt for now, so provide a nice message
