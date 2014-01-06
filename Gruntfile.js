@@ -119,13 +119,16 @@ module.exports = function(grunt) {
 	/*
 	 * Define Grunt Tasks
 	 */
+	
 	// Set up wordpress, copy across wp-content and create index.php and wp-config-sample.php
 	grunt.registerTask('wp', function() {
 		grunt.file.write("app/index.php", '<?php define(\'WP_USE_THEMES\',true);require(dirname(__FILE__).\'/wordpress/wp-blog-header.php\');');
 		grunt.task.run('copy:wp', 'clean:wp');
 	});
+	
 	// Compile styles, and watch for changes
 	grunt.registerTask('wpsass', ['compass:wp', 'watch:wp']);
+	
 	// Dynamically add necessary paths to wp-config.php. You will need to edit this.
 	grunt.registerTask('wpconfig', function() {
 		grunt.task.run('replace:wpconfig', 'clean:wpconfig');

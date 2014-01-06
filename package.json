@@ -21,11 +21,11 @@
     "grunt-contrib-copy": "*",
     "grunt-contrib-clean": "*",
     "grunt-contrib-compass": "*",
-    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-watch": "*",
     "compass": "*",
     "bourbon": "*",
-    "grunt-text-replace": "~0.3.10",
-    "grunt-contrib-uglify": "~0.2.7",
-    "matchdep": "~0.3.0"
+    "grunt-text-replace": "*",
+    "grunt-contrib-uglify": "*",
+    "matchdep": "*"
   }
 }
