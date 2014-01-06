@@ -79,10 +79,10 @@ module.exports = function(grunt) {
 				}
 			},
 			// Watch our js files and auto compile them
-			// js: {
-				// files: ['assets/js/main.js', 'components/**/*.js'],
-				// tasks: ['uglify']
-			// },
+			js: {
+				files: ['app/wp-content/themes/gutsThemeStarter/js/main.js', 'components/**/*.js'],
+				tasks: ['uglify']
+			},
 			// Watch our files for any changes, then automatically reload the page
 			// Requires livereload chrome extension, or equivalent
 			livereload: {
