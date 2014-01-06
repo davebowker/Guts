@@ -4,11 +4,7 @@ module.exports = function(grunt) {
 	grunt.file.defaultEncoding = 'utf8';
 	
 	// Load grunt packages
-	grunt.loadNpmTasks('grunt-contrib-copy');
-	grunt.loadNpmTasks('grunt-contrib-clean');
-	grunt.loadNpmTasks('grunt-contrib-compass');
-	grunt.loadNpmTasks('grunt-text-replace');
-	grunt.loadNpmTasks('grunt-contrib-watch');
+	require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
 	// Set our instructions
 	grunt.initConfig({
@@ -70,11 +66,17 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+		/*
+		 * TODO: Compile js files and compress images
+		 */
 		watch: {
 			// Watch our sass files and auto compile them
 			wp: {					
 				files: ['app/wp-content/themes/gutsThemeStarter/sass/**.*'],
-				tasks: ['compass:wp']
+				tasks: ['compass:wp'],
+				options: {
+					livereload: true
+				}
 			},
 			// Watch our js files and auto compile them
 			// js: {
@@ -84,7 +86,7 @@ module.exports = function(grunt) {
 			// Watch our files for any changes, then automatically reload the page
 			// Requires livereload chrome extension, or equivalent
 			livereload: {
-				files: ['app/wp-content/themes/gutsThemeStarter/css/*.css'],
+				files: ['app/wp-content/themes/gutsThemeStarter/css/**.*'],
 				options: {
 					livereload: true
 				}

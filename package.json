@@ -25,6 +25,7 @@
     "compass": "*",
     "bourbon": "*",
     "grunt-text-replace": "~0.3.10",
-    "grunt-contrib-uglify": "~0.2.7"
+    "grunt-contrib-uglify": "~0.2.7",
+    "matchdep": "~0.3.0"
   }
 }
