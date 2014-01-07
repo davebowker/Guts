@@ -1,0 +1,3 @@
+[submodule "app/wp-content/themes/gutsThemeStarter/js/vendor/hashgrid"]
+	path = app/wp-content/themes/gutsThemeStarter/js/vendor/hashgrid
+	url = https://github.com/dotjay/hashgrid.git
