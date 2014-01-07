@@ -1,11 +1,11 @@
 #################
 ## Guts Custom
 #################
-node_modules
-bower_components
+node_modules/
+bower_components/
 .sass-cache
 app/.htaccess
-app/wordpress
+app/wordpress/
 app/wp-config.php
 app/wp-config-sample.php
 app/index.php
@@ -13,13 +13,13 @@ sitemap.xml
 sitemap.xml.gz
 
 
-app/wp-content/themes/twentyten
-app/wp-content/themes/twentyeleven
-app/wp-content/themes/twentytwelve
-app/wp-content/themes/twentythirteen
-app/wp-content/themes/twentyfourteen
-app/wp-content/plugins
-app/wp-content/uploads
+app/wp-content/themes/twentyten/
+app/wp-content/themes/twentyeleven/
+app/wp-content/themes/twentytwelve/
+app/wp-content/themes/twentythirteen/
+app/wp-content/themes/twentyfourteen/
+app/wp-content/plugins/
+app/wp-content/uploads/
 
 #############
 ## Windows detritus
