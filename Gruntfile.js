@@ -42,7 +42,7 @@ module.exports = function(grunt) {
 			wpconfig: ['app/wp-config-sample.php']
 		},
 		compass : {
-			wp : {
+			style : {
 				options : {
 					environment : 'development',
 					outputStyle : 'expanded',
@@ -81,9 +81,9 @@ module.exports = function(grunt) {
 		 */
 		watch: {
 			// Watch our sass files and auto compile them
-			css: {					
+			style: {					
 				files: ['app/wp-content/themes/gutsThemeStarter/sass/**.*'],
-				tasks: ['compass:wp'],
+				tasks: ['compass:style'],
 				options: {
 					livereload: true
 				}
@@ -137,7 +137,9 @@ module.exports = function(grunt) {
 	});
 	
 	// Compile styles, and watch for changes
-	grunt.registerTask('wpsass', ['compass:wp', 'watch:wp']);
+	grunt.registerTask('style', ['compass:style']);
+	
+	grunt.registerTask('watcher', ['watch']);
 	
 	// Dynamically add necessary paths to wp-config.php. You will need to edit this.
 	grunt.registerTask('wpconfig', function() {

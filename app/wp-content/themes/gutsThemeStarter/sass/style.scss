@@ -16,7 +16,7 @@ Template:       twentythirteen
 
 /* =Theme customization starts here
 -------------------------------------------------------------- */
-$selectionColor: salmon;
+$selectionColor: red;
 
 
 
@@ -25,5 +25,5 @@ body {
 background:$selectionColor; /*inline comment test*/
 }
 article {
-  background:green;
+  background:$selectionColor;
 }

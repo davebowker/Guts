@@ -1,9 +1,9 @@
 http_path = '/app/'
-css_dir = '/app/wp-content/themes/gutsWordPressTheme/css'
-sass_dir = '/app/wp-content/themes/gutsWordPressTheme/sass'
-images_dir = '/app/wp-content/themes/gutsWordPressTheme/img'
-javascripts_dir = '/app/wp-content/themes/gutsWordPressTheme/js'
-fonts_dir = '/app/wp-content/themes/gutsWordPressTheme/font'
+css_dir = '/app/wp-content/themes/gutsThemeStarter/css'
+sass_dir = '/app/wp-content/themes/gutsThemeStarter/sass'
+images_dir = '/app/wp-content/themes/gutsThemeStarter/img'
+javascripts_dir = '/app/wp-content/themes/gutsThemeStarter/js'
+fonts_dir = '/app/wp-content/themes/gutsThemeStarter/font'
 
 relative_assets = true
 line_comments = true
