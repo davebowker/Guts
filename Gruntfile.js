@@ -5,6 +5,7 @@
  * 3) JS concat
  * 4) CSS + JS Lint
  * 5) Watch for js
+ * 6) For deploy, do not delete the wp-config-sample but rather do not upload it to production server
  */
 
 module.exports = function(grunt) {
@@ -37,7 +38,7 @@ module.exports = function(grunt) {
 		},
 		clean : {
 			// WordPress
-			wp : ['app/wordpress/wp-config-sample.php', 'app/wp-content/plugins/hello.php', 'app/wp-content/themes/twentyten', 'app/wp-content/themes/twentyeleven', 
+			wp : ['app/wp-content/plugins/hello.php', 'app/wp-content/themes/twentyten', 'app/wp-content/themes/twentyeleven', 
 
 'app/wp-content/themes/twentytwelve'],
 			wpconfig: ['app/wp-config-sample.php']
@@ -143,9 +144,7 @@ module.exports = function(grunt) {
 	// Dynamically add necessary paths to wp-config.php. You will need to edit this.
 	grunt.registerTask('wpconfig', function() {
 		grunt.task.run('replace:wpconfig', 'clean:wpconfig');
-		grunt.log.write('Guts has dynamically added new lines to the top of your wp-config.php file in the app folder. You will need to edit these lines. Please do this 
-
-now./');
+		grunt.log.write('Guts has dynamically added new lines to the top of your wp-config.php file in the app folder. You will need to edit these lines. Please do this now./');
 	});
 	grunt.registerTask('wpproduction', function() {
 		grunt.task.run('compass:wpproduction');
