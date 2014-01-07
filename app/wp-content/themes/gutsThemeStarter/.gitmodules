@@ -1,0 +1,6 @@
+[submodule "js/vendor/hashgrid"]
+	path = js/vendor/hashgrid
+	url = https://github.com/dotjay/hashgrid.git
+[submodule "js/vendor/jquery"]
+	path = js/vendor/jquery
+	url = https://github.com/jquery/jquery.git

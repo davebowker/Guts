@@ -12,6 +12,12 @@ app/index.php
 sitemap.xml
 sitemap.xml.gz
 
+app/wp-content/themes/twentyten
+app/wp-content/themes/twentyeleven
+app/wp-content/themes/twentytwelve
+app/wp-content/plugins
+app/wp-content/uploads
+
 #############
 ## Windows detritus
 #############
