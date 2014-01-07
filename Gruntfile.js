@@ -1,3 +1,12 @@
+/*
+ * TODO: 
+ * 1) Deploy script to deploy only the app directory
+ * 2) Image Compression
+ * 3) JS concat
+ * 4) CSS + JS Lint
+ * 5) Watch for js
+ */
+
 module.exports = function(grunt) {
 
 	// Set UTF-8 Charset
@@ -28,7 +37,9 @@ module.exports = function(grunt) {
 		},
 		clean : {
 			// WordPress
-			wp : ['app/wordpress/wp-config-sample.php', 'app/wp-content/plugins/hello.php', 'app/wp-content/themes/twentyten', 'app/wp-content/themes/twentyeleven', 'app/wp-content/themes/twentytwelve'],
+			wp : ['app/wordpress/wp-config-sample.php', 'app/wp-content/plugins/hello.php', 'app/wp-content/themes/twentyten', 'app/wp-content/themes/twentyeleven', 
+
+'app/wp-content/themes/twentytwelve'],
 			wpconfig: ['app/wp-config-sample.php']
 		},
 		compass : {
@@ -71,7 +82,7 @@ module.exports = function(grunt) {
 		 */
 		watch: {
 			// Watch our sass files and auto compile them
-			wp: {					
+			css: {					
 				files: ['app/wp-content/themes/gutsThemeStarter/sass/**.*'],
 				tasks: ['compass:wp'],
 				options: {
@@ -104,10 +115,10 @@ module.exports = function(grunt) {
 						var phpTag = matchedWord + '\n\n\n';
 						var prewrap1 = "/***** Dynamicaly generated from Gruntfile.js *****/ \n"
 						var prewrap2 = "/***** You may need to update the path to your project *****/ \n"
-					    var wp_home = "define('WP_HOME',    'http://' . $_SERVER['SERVER_NAME'] . '/eikoncodex.com/app'); \n"; 
-					    var wp_siteurl = "define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] . '/eikoncodex.com/app/wordpress'); \n";
-					    var wp_content_dir = "define('WP_CONTENT_DIR', $_SERVER['DOCUMENT_ROOT'] . '/eikoncodex.com/app/wp-content'); \n";
-					    var wp_content_url = "define('WP_CONTENT_URL', 'http://' . $_SERVER['SERVER_NAME'] . '/eikoncodex.com/app/wp-content'); \n";
+					    var wp_home = "define('WP_HOME',    'http://' . $_SERVER['SERVER_NAME'] . '/app'); \n"; 
+					    var wp_siteurl = "define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] . '/app/wordpress'); \n";
+					    var wp_content_dir = "define('WP_CONTENT_DIR', $_SERVER['DOCUMENT_ROOT'] . '/app/wp-content'); \n";
+					    var wp_content_url = "define('WP_CONTENT_URL', 'http://' . $_SERVER['SERVER_NAME'] . '/app/wp-content'); \n";
 						var postwrap = "/***** End Gruntfile.js inserts *****/ \n\n\n"	    
 					    return [phpTag + prewrap1 + prewrap2 + wp_home + wp_siteurl + wp_content_dir + wp_content_url + postwrap];
 					}
@@ -132,7 +143,9 @@ module.exports = function(grunt) {
 	// Dynamically add necessary paths to wp-config.php. You will need to edit this.
 	grunt.registerTask('wpconfig', function() {
 		grunt.task.run('replace:wpconfig', 'clean:wpconfig');
-		grunt.log.write('Guts has dynamically added new lines to the top of your wp-config.php file in the app folder. You will need to edit these lines. Please do this now./');
+		grunt.log.write('Guts has dynamically added new lines to the top of your wp-config.php file in the app folder. You will need to edit these lines. Please do this 
+
+now./');
 	});
 	grunt.registerTask('wpproduction', function() {
 		grunt.task.run('compass:wpproduction');
