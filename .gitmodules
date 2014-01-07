@@ -16,7 +16,3 @@
 	path = app/w
 
 	url = https://github.com/twbs/bootstrap.git
-
-[submodule "app/wordpress"]
-	path = app/wordpress
-	url = https://github.com/WordPress/WordPress.git
