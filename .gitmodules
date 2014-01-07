@@ -1,18 +1,6 @@
-[submodule "app/wp-content/themes/gutsThemeStarter/js/vendor/hashgrid"]
-	path = app/wp-content/themes/gutsThemeStarter/js/vendor/hashgrid
+[submodule "app/wordpress"]
+	path = app/wordpress
+	url = https://github.com/WordPress/WordPress.git
+[submodule "app/wp-content/themes/gutsThemeStarter/js/vendor"]
+	path = app/wp-content/themes/gutsThemeStarter/js/vendor
 	url = https://github.com/dotjay/hashgrid.git
-
-[submodule "app/wp-content/themes/gutsThemeStarter/js/vendor/jquery"]
-	path = app/wp-content/themes/gutsThemeStarter/js/vendor/jquery
-	url = https://github.com/jquery/jquery.git
-
-[submodule "app/wp-content/themes/gutsThemeStarter/js/vendor/modernizr"]
-	path = app/wp-content/themes/gutsThemeStarter/js/vendor/modernizr
-	url = https://github.com/Modernizr/Modernizr.git
-
-
-[submodule "app/w"]
-
-	path = app/w
-
-	url = https://github.com/twbs/bootstrap.git

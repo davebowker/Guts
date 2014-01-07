@@ -5,7 +5,6 @@ node_modules/
 bower_components/
 .sass-cache
 app/.htaccess
-app/wordpress/
 app/wp-config.php
 app/wp-config-sample.php
 app/index.php
