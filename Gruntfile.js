@@ -38,8 +38,8 @@ module.exports = function(grunt) {
 		},
 		clean : {
 			// WordPress
-			wp : ['app/wordpress/wp-config-sample.php', 'app/wp-content/plugins/hello.php', 'app/wp-content/themes/twentyten', 'app/wp-content/themes/twentyeleven', 'app/wp-content/themes/twentytwelve'],
-			wpconfig: ['app/wp-config-sample.php']
+			wp : ['app/wordpress/wp-config-sample.php', 'app/wp-content/plugins/hello.php', 'app/wp-content/themes/twentyten', 'app/wp-content/themes/twentyeleven', 'app/wp-content/themes/twentytwelve']
+			//wpconfig: ['app/wp-config-sample.php']
 		},
 		compass : {
 			style : {
