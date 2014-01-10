@@ -22,7 +22,7 @@ module.exports = function(grunt) {
 		pkg : grunt.file.readJSON('package.json'),
 		copy : {
 			// WordPress
-			wp : {
+			setup : {
 				files : [{
 					expand : true,
 					cwd : 'app/wordpress',
@@ -38,14 +38,14 @@ module.exports = function(grunt) {
 		},
 		clean : {
 			// WordPress
-			wp : ['app/wordpress/wp-config-sample.php', 'app/wp-content/plugins/hello.php', 'app/wp-content/themes/twentyten', 'app/wp-content/themes/twentyeleven', 'app/wp-content/themes/twentytwelve']
+			setup : ['app/wordpress/wp-config-sample.php', 'app/wp-content/plugins/hello.php', 'app/wp-content/themes/twentyten', 'app/wp-content/themes/twentyeleven', 'app/wp-content/themes/twentytwelve']
 			//wpconfig: ['app/wp-config-sample.php']
 		},
         autoprefixer: {
             options: {
                 browsers: ['last 2 versions', '> 1%', 'ie 8', 'ie 9']
             },
-		    wpdev: {
+		    dev: {
 		      options: {
 		        // Target-specific options go here.
 		      },
@@ -95,7 +95,7 @@ module.exports = function(grunt) {
 			// Watch our sass files and auto compile them
 			style: {					
 				files: ['app/wp-content/themes/gutsThemeStarter/sass/**.*'],
-				tasks: ['compass:dev', 'autoprefixer'],
+				tasks: ['compass:dev', 'autoprefixer:dev'],
 				options: {
 					livereload: true
 				}
@@ -115,8 +115,8 @@ module.exports = function(grunt) {
 			}
 		},
 		replace: {
-			wpconfig: {
-				src: ['app/wp-config.php'],
+			setup: {
+				src: ['app/wp-config-sample.php'],
 				overwrite: true,
 				//dest: 'app/wp-config.php',
 				replacements: [{
@@ -143,23 +143,25 @@ module.exports = function(grunt) {
 	 */
 	
 	// Set up wordpress, copy across wp-content and create index.php and wp-config-sample.php
-	grunt.registerTask('wp', function() {
+	grunt.registerTask('setup', function() {
 		grunt.file.write("app/index.php", '<?php define(\'WP_USE_THEMES\',true);require(dirname(__FILE__).\'/wordpress/wp-blog-header.php\');');
-		grunt.task.run('copy:wp', 'clean:wp');
+		grunt.task.run('copy:setup', 'replace:setup', 'clean:setup');
+		grunt.log.oklns('********************************************');
+		grunt.log.oklns('Guts has done the following tasks:');
+		grunt.log.oklns('1) Written code to your app/wp-config-sample.php file which points to the app/wp-content/ directory outside of the wordpress folder.');
+		grunt.log.oklns('2) Written app/index.php which tells wordpress that it is in a subdirectory');
+		grunt.log.oklns('********************************************');
 	});
 	
 	// Compile styles, and watch for changes
-	grunt.registerTask('style', ['compass:style']);
+	grunt.registerTask('style', ['compass:dev']);
 	
 	grunt.registerTask('watcher', ['watch']);
 	
 	// Dynamically add necessary paths to wp-config.php. You will need to edit this.
-	grunt.registerTask('wpconfig', function() {
-		grunt.task.run('replace:wpconfig', 'clean:wpconfig');
-		grunt.log.write('Guts has dynamically added new lines to the top of your wp-config.php file in the app folder. You will need to edit these lines. Please do this now./');
-	});
-	grunt.registerTask('wpproduction', function() {
-		grunt.task.run('compass:wpproduction');
+
+	grunt.registerTask('production', function() {
+		grunt.task.run('compass:production');
 	});
 
 	// We want to disable default grunt for now, so provide a nice message
