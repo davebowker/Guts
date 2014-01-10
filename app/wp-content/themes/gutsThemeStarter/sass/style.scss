@@ -10,13 +10,12 @@ Version: 1.0
 Template:       twentythirteen
 */
 
-
-@import "../../twentythirteen/style.css";
 @import "compass";
 
 /* =Theme customization starts here
 -------------------------------------------------------------- */
-$selectionColor: pink;
+$selectionColor: blue;
+
 
 
 
@@ -25,5 +24,9 @@ body {
 background:$selectionColor; /*inline comment test*/
 }
 article {
-  background:$selectionColor;
+  background:adjust-lightness($selectionColor, 30);
+  @include border-radius(10px 20px);
+  @include float-left;
+  display:flex;
 }
+

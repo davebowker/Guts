@@ -41,8 +41,20 @@ module.exports = function(grunt) {
 			wp : ['app/wordpress/wp-config-sample.php', 'app/wp-content/plugins/hello.php', 'app/wp-content/themes/twentyten', 'app/wp-content/themes/twentyeleven', 'app/wp-content/themes/twentytwelve']
 			//wpconfig: ['app/wp-config-sample.php']
 		},
+        autoprefixer: {
+            options: {
+                browsers: ['last 2 versions', '> 1%', 'ie 8', 'ie 9']
+            },
+		    wpdev: {
+		      options: {
+		        // Target-specific options go here.
+		      },
+		      src: 'app/wp-content/themes/gutsThemeStarter/css/style.css',
+		      dest: 'app/wp-content/themes/gutsThemeStarter/css/style.css'
+		    }
+        },
 		compass : {
-			style : {
+			dev : {
 				options : {
 					environment : 'development',
 					outputStyle : 'expanded',
@@ -60,7 +72,7 @@ module.exports = function(grunt) {
 			/*
 			 * TODO: Update production settings
 			 */
-			wpproduction : {
+			production : {
 				options : {
 					environment : 'production',
 					outputStyle : 'compressed',
@@ -83,7 +95,7 @@ module.exports = function(grunt) {
 			// Watch our sass files and auto compile them
 			style: {					
 				files: ['app/wp-content/themes/gutsThemeStarter/sass/**.*'],
-				tasks: ['compass:style'],
+				tasks: ['compass:dev', 'autoprefixer'],
 				options: {
 					livereload: true
 				}
