@@ -14,7 +14,7 @@ Template:       twentyfourteen
 
 /* =Theme customization starts here
 -------------------------------------------------------------- */
-$selectionColor: green;
+$selectionColor: blue;
 
 
 
@@ -26,7 +26,5 @@ background:$selectionColor; /*inline comment test*/
 article {
   background:adjust-lightness($selectionColor, 30);
   @include border-radius(10px 20px);
-  @include float-left;
-  display:flex;
 }
 
