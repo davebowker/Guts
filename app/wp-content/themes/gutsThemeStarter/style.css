@@ -1,3 +1,4 @@
+@import url("../../twentyfourteen/style.css");
 /*!
  Theme Name:   gutsThemeStarter
  Theme URI:    http://example.com/twenty-fourteen-child/
@@ -9,24 +10,15 @@
  Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
  Text Domain:  twenty-fourteen-child
 */
-
-@import url("../../twentyfourteen/style.css");
-
-@import "compass";
-
 /* =Theme customization starts here
 -------------------------------------------------------------- */
-$selectionColor: blue;
-
-
-
-
-
 body {
-background:$selectionColor; /*inline comment test*/
-}
-article {
-  background:adjust-lightness($selectionColor, 30);
-  @include border-radius(10px 20px);
+  background: blue;
+  /*inline comment test*/
 }
 
+article {
+  background: #9999ff;
+  -o-border-radius: 10px 20px;
+  border-radius: 10px 20px;
+}

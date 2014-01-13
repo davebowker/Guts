@@ -1,5 +1,5 @@
 http_path = '/app/'
-css_dir = '/app/wp-content/themes/gutsThemeStarter/css'
+css_dir = '/app/wp-content/themes/gutsThemeStarter'
 sass_dir = '/app/wp-content/themes/gutsThemeStarter/sass'
 images_dir = '/app/wp-content/themes/gutsThemeStarter/img'
 javascripts_dir = '/app/wp-content/themes/gutsThemeStarter/js'

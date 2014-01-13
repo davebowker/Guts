@@ -49,8 +49,8 @@ module.exports = function(grunt) {
 		      options: {
 		        // Target-specific options go here.
 		      },
-		      src: 'app/wp-content/themes/gutsThemeStarter/css/style.css',
-		      dest: 'app/wp-content/themes/gutsThemeStarter/css/style.css'
+		      src: 'app/wp-content/themes/gutsThemeStarter/style.css',
+		      dest: 'app/wp-content/themes/gutsThemeStarter/style.css'
 		    }
         },
 		compass : {
@@ -60,7 +60,7 @@ module.exports = function(grunt) {
 					outputStyle : 'expanded',
 					relativeAssets : true,
 					basePath : 'app/wp-content/themes/gutsThemeStarter',
-					cssDir : 'css',
+					cssDir : '',
 					sassDir : 'sass',
 					imagesDir : 'img',
 					javascriptsDir : 'js',
@@ -78,7 +78,7 @@ module.exports = function(grunt) {
 					outputStyle : 'compressed',
 					relativeAssets : false,
 					basePath : 'app/wp-content/themes/gutsThemeStarter',
-					cssDir : 'css',
+					cssDir : '',
 					sassDir : 'sass',
 					imagesDir : 'img',
 					javascriptsDir : 'js',
@@ -159,7 +159,7 @@ module.exports = function(grunt) {
 	});
 	
 	// Compile styles, and watch for changes
-	grunt.registerTask('style', ['compass:dev']);
+	grunt.registerTask('style', ['compass:dev', 'autoprefixer:dev']);
 	
 	grunt.registerTask('watcher', ['watch']);
 	
