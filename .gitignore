@@ -1,6 +1,7 @@
 #################
 ## Guts Custom
 #################
+.project
 css/
 node_modules/
 bower_components/
