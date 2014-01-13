@@ -10,3 +10,9 @@ RewriteRule . /eikoncodex.com/app/index.php [L]
 </IfModule>
 
 # END WordPress
+
+##### Deny access to wp-config.php
+<files wp-config.php>
+order allow,deny
+deny from all
+</files>
