@@ -2,10 +2,10 @@
 ## Guts Custom
 #################
 .project
-css/
+*.css
+.sass-cache
 node_modules/
 bower_components/
-.sass-cache
 app/.htaccess
 app/wp-config.php
 app/wp-config-sample.php
