@@ -1,32 +1,22 @@
 /*!
  Theme Name:   gutsThemeStarter
- Theme URI:    http://example.com/twenty-fourteen-child/
- Description:  Twenty Fourteen Child Theme
+ Theme URI:    https://github.com/davebowker/Guts
+ Description:  Guts is a theme starter for working with WordPress
  Author:       Dave Bowker
- Author URI:   http://example.com
+ Author URI:   http://davebowker.com
  Template:     twentyfourteen
  Version:      1.0.0
- Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
- Text Domain:  twenty-fourteen-child
+ Tags:         theme, starter, seed, development
+ Text Domain:  gutsThemeStarter
 */
 
+// Parent Theme Style
 @import url("../twentyfourteen/style.css");
 
-@import "compass";
+// Partials
+@import "partials/variables";
+@import "partials/base";
 
-/* =Theme customization starts here
--------------------------------------------------------------- */
-$selectionColor: green;
+// Modules
 
-
-
-
-
-body {
-background:$selectionColor; /*inline comment test*/
-}
-article {
-  background:adjust-lightness($selectionColor, 30);
-  @include border-radius(10px 20px);
-}
-
+// Vendor

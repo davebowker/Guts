@@ -94,7 +94,10 @@ module.exports = function(grunt) {
 		watch: {
 			// Watch our sass files and auto compile them
 			style: {					
-				files: ['app/wp-content/themes/gutsThemeStarter/sass/**.*'],
+				files: [
+					'app/wp-content/themes/gutsThemeStarter/sass/*.scss',
+					'app/wp-content/themes/gutsThemeStarter/sass/**/*.scss'
+				],
 				tasks: ['compass:dev', 'autoprefixer:dev'],
 				options: {
 					livereload: true
