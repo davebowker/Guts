@@ -1,4 +1,4 @@
-@import url("../../twentyfourteen/style.css");
+@import url("../twentyfourteen/style.css");
 /*!
  Theme Name:   gutsThemeStarter
  Theme URI:    http://example.com/twenty-fourteen-child/
@@ -13,12 +13,12 @@
 /* =Theme customization starts here
 -------------------------------------------------------------- */
 body {
-  background: blue;
+  background: green;
   /*inline comment test*/
 }
 
 article {
-  background: #9999ff;
+  background: #1aff1a;
   -o-border-radius: 10px 20px;
   border-radius: 10px 20px;
 }
