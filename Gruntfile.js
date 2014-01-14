@@ -61,7 +61,7 @@ module.exports = function(grunt) {
 					relativeAssets : true,
 					basePath : 'app/wp-content/themes/gutsThemeStarter',
 					cssDir : '',
-					sassDir : 'sass',
+					sassDir : 'scss',
 					imagesDir : 'img',
 					javascriptsDir : 'js',
 					fontsDir : 'font',
@@ -79,7 +79,7 @@ module.exports = function(grunt) {
 					relativeAssets : false,
 					basePath : 'app/wp-content/themes/gutsThemeStarter',
 					cssDir : '',
-					sassDir : 'sass',
+					sassDir : 'scss',
 					imagesDir : 'img',
 					javascriptsDir : 'js',
 					fontsDir : 'font',
@@ -92,11 +92,11 @@ module.exports = function(grunt) {
 		 * TODO: Compile js files and compress images
 		 */
 		watch: {
-			// Watch our sass files and auto compile them
+			// Watch our scss files and auto compile them
 			style: {					
 				files: [
-					'app/wp-content/themes/gutsThemeStarter/sass/*.scss',
-					'app/wp-content/themes/gutsThemeStarter/sass/**/*.scss'
+					'app/wp-content/themes/gutsThemeStarter/scss/*.scss',
+					'app/wp-content/themes/gutsThemeStarter/scss/**/*.scss'
 				],
 				tasks: ['compass:dev', 'autoprefixer:dev'],
 				options: {
