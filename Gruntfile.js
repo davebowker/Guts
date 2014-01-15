@@ -105,7 +105,7 @@ module.exports = function(grunt) {
 			},
 			// Watch our js files and auto compile them
 			js: {
-				files: ['app/wp-content/themes/gutsThemeStarter/js/main.js', 'components/**/*.js'],
+				files: ['app/wp-content/themes/gutsThemeStarter/js/source/*.js'],
 				tasks: ['uglify']
 			},
 			// Watch our files for any changes, then automatically reload the page

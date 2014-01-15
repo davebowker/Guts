@@ -27,7 +27,7 @@
     "grunt-text-replace": "*",
     "grunt-contrib-uglify": "*",
     "matchdep": "*",
-    "node-bourbon": "~1.0.0",
-    "grunt-autoprefixer": "~0.6.4"
+    "node-bourbon": "*",
+    "grunt-autoprefixer": "*"
   }
 }

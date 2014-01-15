@@ -1,7 +1,9 @@
+/*
+ * Global defaults
+ */
+
+$bodyBackground: red;
+
 body {
-  background:$bodyBackground; /*inline comment test*/
-}
-article {
-  background:adjust-lightness($bodyBackground, 30);
-  @include border-radius(10px 20px);
+	background:$bodyBackground;
 }
