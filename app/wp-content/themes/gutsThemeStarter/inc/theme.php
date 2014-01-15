@@ -40,12 +40,10 @@ function wpfme_jquery_enqueue() {
 	wp_enqueue_script('jquery');
 }
 
-// Enable thumbnails
-
 // Enable widgetable sidebar
 // You may need to tweak your theme files, more info here - http://codex.wordpress.org/Widgetizing_Themes
-if (function_exists('register_sidebar'))
-	register_sidebar(array('name' => 'Unused Widget Holder', 'id' => 'unused_widget_holder', 'description' => 'Not sure if you want to use that widget you\'ve spent time customising or not? Drag it in here to save it\'s settings. Anything in here will not be shown in the theme.', 'before_widget' => '<aside>', 'after_widget' => '</aside>', 'before_title' => '<h1>', 'after_title' => '</h1>'));
+//if (function_exists('register_sidebar'))
+//	register_sidebar(array('name' => 'Unused Widget Holder', 'id' => 'unused_widget_holder', 'description' => 'Not sure if you want to use that widget you\'ve spent time customising or not? Drag it in here to save it\'s settings. Anything in here will not be shown in the theme.', 'before_widget' => '<aside>', 'after_widget' => '</aside>', 'before_title' => '<h1>', 'after_title' => '</h1>'));
 
 // Set a maximum width for Oembedded objects
 if (!isset($content_width))
@@ -89,8 +87,22 @@ function wpfme_remove_img_ptags($content) {
 	return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
 }
 
-//custom excerpt length
+// Custom excerpt length
 add_filter('excerpt_length', 'wpfme_custom_excerpt_length');
 function wpfme_custom_excerpt_length($length) {
 	return 55;
 }
+
+// Load all of our styles
+add_action('wp_enqueue_scripts', 'gutsStyles');
+function gutsStyles() {
+	// Load our main stylesheet.
+	wp_enqueue_style('guts-style', get_stylesheet_uri());
+}
+
+// Load all of our scripts
+// add_action('wp_enqueue_scripts', 'gutsScripts');
+// function gutsScripts() {
+	// wp_register_script('main', get_stylesheet_directoy_uri() . '/js/source/main.js');
+	// wp_enqueue_script('main');
+// }

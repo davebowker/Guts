@@ -93,7 +93,7 @@ module.exports = function(grunt) {
 		 */
 		watch: {
 			// Watch our scss files and auto compile them
-			style: {					
+			style: {
 				files: [
 					'app/wp-content/themes/gutsThemeStarter/scss/*.scss',
 					'app/wp-content/themes/gutsThemeStarter/scss/**/*.scss'
@@ -111,7 +111,10 @@ module.exports = function(grunt) {
 			// Watch our files for any changes, then automatically reload the page
 			// Requires livereload chrome extension, or equivalent
 			livereload: {
-				files: ['app/wp-content/themes/gutsThemeStarter/css/**.*'],
+				files: [
+					'app/wp-content/themes/gutsThemeStarter/css/**.*',
+					'app/wp-content/themes/gutsThemeStarter/**'
+				],
 				options: {
 					livereload: true
 				}

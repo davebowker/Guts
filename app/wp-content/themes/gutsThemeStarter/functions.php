@@ -5,7 +5,7 @@
  * This file should contain UNDO functionality only. To add something, that should
  * be placed within theme.php
  */
-//require_once (get_stylesheet_directory() . '/inc/parent.php');
+require_once (get_stylesheet_directory() . '/inc/parent.php');
 
 /*
  * Functionality for admin pages, performance and security
@@ -31,3 +31,4 @@ require_once (get_stylesheet_directory() . '/inc/theme.php');
  * inline comment editing???
  *
  */
+ 
