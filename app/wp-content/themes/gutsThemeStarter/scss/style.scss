@@ -12,15 +12,17 @@
 
 @charset "UTF-8";
 @import "compass";
-@include global-reset;
+//@include global-reset;
 
 // Parent Theme Style
 @import url("../twentyfourteen/style.css");
 
 // Partials
 @import "partials/base";
+@import "partials/body";
 @import "partials/typography";
 
 // Modules
 
 // Vendor
+

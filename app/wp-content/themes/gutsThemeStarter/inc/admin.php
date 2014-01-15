@@ -31,8 +31,23 @@ if (!current_user_can('edit_users')) {
 
 }
 
-// Load in a stylesheet for the admin
-add_action('admin_print_styles', 'admin_style');
+// Add custom style for /wp-admin/
+add_action('admin_enqueue_scripts', 'admin_style');
 function admin_style() {
-	wp_enqueue_style('admin_print_styles', get_stylesheet_directory_uri() . '/inc/admin-style.css');
+	wp_register_style('wp_admin_css', get_stylesheet_directory_uri() . '/inc/wp-admin.css', false, '1.0.0');
+	wp_enqueue_style('wp_admin_css');
 }
+
+// Add custom style for /wp-login/
+add_action('login_enqueue_scripts', 'login_style');
+function login_style() {
+	wp_register_style('wp_login_css', get_stylesheet_directory_uri() . '/inc/wp-login.css', false, '1.0.0');
+	wp_enqueue_style('wp_login_css');
+}
+
+// Remove the version number of WP
+// Warning - this info is also available in the readme.html file in your root directory - delete this file!
+remove_action('wp_head', 'wp_generator');
+
+// Disable the theme / plugin text editor in Admin
+define('DISALLOW_FILE_EDIT', true);
