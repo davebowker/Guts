@@ -60,7 +60,7 @@ module.exports = function(grunt) {
 					outputStyle : 'expanded',
 					relativeAssets : true,
 					basePath : 'app/wp-content/themes/gutsThemeStarter',
-					cssDir : '',
+					cssDir : '.', // '.' is the same folder level
 					sassDir : 'scss',
 					imagesDir : 'img',
 					javascriptsDir : 'js',
