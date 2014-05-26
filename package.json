@@ -28,6 +28,7 @@
     "grunt-contrib-uglify": "*",
     "matchdep": "*",
     "node-bourbon": "*",
-    "grunt-autoprefixer": "*"
+    "grunt-autoprefixer": "*",
+    "grunt-contrib-connect": "*"
   }
 }
