@@ -8,7 +8,7 @@
  * 6) For deploy, do not delete the wp-config-sample but rather do not upload it to production server. MAKE AN AWESOME BUILD FILE.
  * 7) In the watch task, can we pick up the file names/options from the tasks above?? EG. files: ['<%= jshint.files %>']
  * 8) grunt contrib server
- * 9) 
+ * 9)
  */
 
 module.exports = function(grunt) {
@@ -21,8 +21,28 @@ module.exports = function(grunt) {
 
 	// Set our instructions
 	grunt.initConfig({
-		// Read package.json for instructions on what packages to use
+		/*
+		 * Set up variables for a more gruntier grunt.
+		 */
 		pkg : grunt.file.readJSON('package.json'),
+		pathToTheme : 'app/wp-content/themes/gutsThemeStarter',
+
+		/*
+		 * Auto prefix CSS with browser variations (eg, -moz-, -webkit-)
+		 */
+		autoprefixer : {
+			options : {
+				browsers : ['last 2 versions', '> 1%', 'ie 8', 'ie 9']
+			},
+			dev : {
+				options : {
+					// Target-specific options go here.
+				},
+				src : '<%= pathToTheme %>/style.css',
+				dest : '<%= pathToTheme %>/style.css'
+			}
+		},
+		
 		copy : {
 			// WordPress
 			setup : {
@@ -44,25 +64,13 @@ module.exports = function(grunt) {
 			setup : ['app/wordpress/wp-config-sample.php', 'app/wp-content/plugins/hello.php', 'app/wp-content/themes/twentyten', 'app/wp-content/themes/twentyeleven', 'app/wp-content/themes/twentytwelve']
 			//wpconfig: ['app/wp-config-sample.php']
 		},
-		autoprefixer : {
-			options : {
-				browsers : ['last 2 versions', '> 1%', 'ie 8', 'ie 9']
-			},
-			dev : {
-				options : {
-					// Target-specific options go here.
-				},
-				src : 'app/wp-content/themes/gutsThemeStarter/style.css',
-				dest : 'app/wp-content/themes/gutsThemeStarter/style.css'
-			}
-		},
 		compass : {
 			dev : {
 				options : {
 					environment : 'development',
 					outputStyle : 'expanded',
 					relativeAssets : true,
-					basePath : 'app/wp-content/themes/gutsThemeStarter',
+					basePath : '<%= pathToTheme %>',
 					cssDir : '.', // '.' is the same folder level
 					sassDir : 'scss',
 					imagesDir : 'img',
@@ -80,7 +88,7 @@ module.exports = function(grunt) {
 					environment : 'production',
 					outputStyle : 'compressed',
 					relativeAssets : false,
-					basePath : 'app/wp-content/themes/gutsThemeStarter',
+					basePath : '<%= pathToTheme %>',
 					cssDir : '',
 					sassDir : 'scss',
 					imagesDir : 'img',
@@ -91,6 +99,37 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+		concat: {
+			options: {
+				separator: ';'
+			},
+			dist: {
+				src: [
+					'<%= pathToTheme %>/js/source/*.js'
+				],
+				dest: '<%= pathToTheme %>/js/script.js'
+			}
+		},
+		/*
+		 * TODO: Target all js files
+		 */
+		jshint : {
+			files : [
+				'Gruntfile.js',
+				'<%= pathToTheme %>/js/script.js',
+				'<%= pathToTheme %>/js/script.min.js'
+			],
+			options: {
+				reporter: require('jshint-stylish'),
+				globals: {
+					jQuery: true,
+					console: true,
+					module: true
+				},
+				lastsemic: true
+			}
+		},
+		// Dynamically add necessary paths to wp-config.php. You will need to edit this.
 		replace : {
 			setup : {
 				src : ['app/wp-config-sample.php'],
@@ -120,22 +159,29 @@ module.exports = function(grunt) {
 		},
 		/*
 		 * TODO: Understand this!
+		 * Queue up all files
 		 */
 		uglify : {
-			options: {
-				mangle: {
-					except: ['jQuery', 'Backbone']
+			options : {
+				banner : '/*! <%= pkg.name %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd hh:mm") %> */\n',
+				compress : {
+					drop_console : true
 				},
-				compress: {
-					drop_console: true
-				},
-				banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd hh:mm") %> */',
-				// Enable to beautify the code for debugging
-				beautify: false
+				mangle : {
+					except : ['jQuery', 'Backbone']
+				}
 			},
 			dev : {
+				options : {
+					beautify : true
+				},
 				files : {
-					'app/wp-content/themes/gutsThemeStarter/js/script.js' : ['app/wp-content/themes/gutsThemeStarter/js/source/*.js']
+					'<%= pathToTheme %>/js/script.js' : ['<%= pathToTheme %>/js/source/*.js']
+				}
+			},
+			prod : {
+				files : {
+					'<%= pathToTheme %>/js/script.min.js' : ['<%= pathToTheme %>/js/source/*.js']
 				}
 			}
 		},
@@ -145,22 +191,26 @@ module.exports = function(grunt) {
 		watch : {
 			// Watch our scss files and auto compile them
 			style : {
-				files : ['app/wp-content/themes/gutsThemeStarter/scss/*.scss', 'app/wp-content/themes/gutsThemeStarter/scss/**/*.scss'],
+				files : ['<%= pathToTheme %>/scss/*.scss', '<%= pathToTheme %>/scss/**/*.scss'],
 				tasks : ['compass:dev', 'autoprefixer:dev'],
 				options : {
 					livereload : true
 				}
 			},
 			/*
-			 * TODO: This needs a 'files' attribute. Need to load in jshint first.
-			 */
+			* TODO: This needs a 'files' attribute. Need to load in jshint first.
+			*/
 			js : {
-				tasks : ['uglify:dev']
+				files: '<%= pathToTheme %>/js/source/*.js',
+				tasks : [
+					'uglify',
+					'jshint'
+				]
 			},
 			// Watch our files for any changes, then automatically reload the page
 			// Requires livereload chrome extension, or equivalent
 			livereload : {
-				files : ['app/wp-content/themes/gutsThemeStarter/css/**.*', 'app/wp-content/themes/gutsThemeStarter/**'],
+				files : ['<%= pathToTheme %>/css/**.*', '<%= pathToTheme %>/**'],
 				options : {
 					livereload : true
 				}
@@ -187,8 +237,6 @@ module.exports = function(grunt) {
 	grunt.registerTask('style', ['compass:dev', 'autoprefixer:dev']);
 
 	grunt.registerTask('watcher', ['watch']);
-
-	// Dynamically add necessary paths to wp-config.php. You will need to edit this.
 
 	grunt.registerTask('production', function() {
 		grunt.task.run('compass:production');

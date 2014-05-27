@@ -1,4 +1,6 @@
-$(document).ready(function() {
+jQuery(document).ready(function() {
 	var qwerty = "JAVACRIPT LOADED";
-	$('body').css('background', 'green').prepend(qwerty);
+	var HELLO = 'hello';
+	var test = 'terst';
+	jQuery('body').css('background', 'green').prepend(qwerty + HELLO + test);
 });
