@@ -65,35 +65,31 @@ module.exports = function(grunt) {
 			//wpconfig: ['app/wp-config-sample.php']
 		},
 		compass : {
+			options : {
+				//importPath : 'app/wp-content/themes/*',
+				basePath : '<%= pathToTheme %>',
+				cssDir : '.', // '.' is the same folder level
+				sassDir : 'scss',
+				imagesDir : 'img',
+				javascriptsDir : 'js',
+				fontsDir : 'font'
+			},
 			dev : {
 				options : {
 					environment : 'development',
 					outputStyle : 'expanded',
 					relativeAssets : true,
-					basePath : '<%= pathToTheme %>',
-					cssDir : '.', // '.' is the same folder level
-					sassDir : 'scss',
-					imagesDir : 'img',
-					javascriptsDir : 'js',
-					fontsDir : 'font',
-					noLineComments : true,
 					force : true
 				}
 			},
 			/*
 			 * TODO: Update production settings
 			 */
-			production : {
+			prod : {
 				options : {
 					environment : 'production',
 					outputStyle : 'compressed',
 					relativeAssets : false,
-					basePath : '<%= pathToTheme %>',
-					cssDir : '',
-					sassDir : 'scss',
-					imagesDir : 'img',
-					javascriptsDir : 'js',
-					fontsDir : 'font',
 					noLineComments : true,
 					force : true
 				}

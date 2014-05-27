@@ -4,3 +4,4 @@ jQuery(document).ready(function() {
 	var test = 'terst';
 	jQuery('body').css('background', 'green').prepend(qwerty + HELLO + test);
 });
+

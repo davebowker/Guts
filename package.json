@@ -29,6 +29,10 @@
     "matchdep": "*",
     "node-bourbon": "*",
     "grunt-autoprefixer": "*",
-    "grunt-contrib-connect": "*"
+    "grunt-contrib-connect": "*",
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-concat": "*",
+    "jshint-stylish": "*",
+    "grunt-contrib-csslint": "*"
   }
 }
