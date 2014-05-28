@@ -8,7 +8,8 @@
  * 6) For deploy, do not delete the wp-config-sample but rather do not upload it to production server. MAKE AN AWESOME BUILD FILE.
  * 7) In the watch task, can we pick up the file names/options from the tasks above?? EG. files: ['<%= jshint.files %>']
  * 8) grunt contrib server
- * 9)
+ * 9) clean function to remove all generated frunt files
+ * 
  */
 
 module.exports = function(grunt) {
