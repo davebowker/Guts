@@ -1,7 +1,8 @@
 {
   "name": "setupGuts",
-  "description": "The initial setup of Guts will load packages for Grunt and Bower which will initialise your dev environment. From this starting point you can customise it however you like.",
+  "description": "Initial dev environment setup. Haaawww yeaaahhh.",
   "author": "Dave Bowker <guts@davebowker.com> (http://twitter.com/davebowker)",
+  "themeName": "gutsThemeStarter",
   "repository": {
     "type": "git",
     "url": "http://github.com/davebowker/Guts.git"
@@ -33,6 +34,7 @@
     "grunt-contrib-jshint": "*",
     "grunt-contrib-concat": "*",
     "jshint-stylish": "*",
-    "grunt-contrib-csslint": "*"
+    "grunt-contrib-csslint": "*",
+    "grunt-contrib-imagemin": "~0.7.0"
   }
 }

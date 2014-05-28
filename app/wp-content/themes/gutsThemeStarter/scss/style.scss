@@ -15,12 +15,13 @@
 //@include global-reset;
 
 // Parent Theme Style
-@import url("../twentyfourteen/style.css");
+//@import url("../twentyfourteen/style.css");
 
 // Partials
 @import "partials/base";
 @import "partials/body";
 @import "partials/typography";
+@import "partials/test.css";
 
 // Modules
 

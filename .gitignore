@@ -12,6 +12,8 @@ app/wp-config-sample.php
 app/index.php
 sitemap.xml
 sitemap.xml.gz
+imgOpt/
+
 
 
 wordpress/

@@ -106,6 +106,22 @@ module.exports = function(grunt) {
 				dest: '<%= pathToTheme %>/js/script.js'
 			}
 		},
+		imagemin: {
+			options: {
+				optimizationLevel: 4,
+				progressive: true,
+				interlace: true,
+				cache: false
+			},
+			dynamic: {
+				files: [{
+					expand: true,
+					cwd: '<%= pathToTheme %>/img',
+					src: ['**/*.{png,jpg,gif,ico}'],
+					dest: '<%= pathToTheme %>/imgOpt'
+				}]
+			}
+		},
 		/*
 		 * TODO: Target all js files
 		 */
@@ -185,17 +201,15 @@ module.exports = function(grunt) {
 		 * TODO: Compile js files and compress images
 		 */
 		watch : {
-			// Watch our scss files and auto compile them
-			style : {
-				files : ['<%= pathToTheme %>/scss/*.scss', '<%= pathToTheme %>/scss/**/*.scss'],
-				tasks : ['compass:dev', 'autoprefixer:dev'],
-				options : {
-					livereload : true
-				}
-			},
 			/*
-			* TODO: This needs a 'files' attribute. Need to load in jshint first.
-			*/
+			 * TODO: Auto switch file paths to optimised image path
+			 */
+			img : {
+				files: '<%= pathToTheme %>/img/**/*.*',
+				tasks: [
+					'imagemin'
+				]
+			},
 			js : {
 				files: '<%= pathToTheme %>/js/source/*.js',
 				tasks : [
@@ -203,10 +217,17 @@ module.exports = function(grunt) {
 					'jshint'
 				]
 			},
-			// Watch our files for any changes, then automatically reload the page
-			// Requires livereload chrome extension, or equivalent
+			// Watch the whole folder for any changes and livereload
 			livereload : {
-				files : ['<%= pathToTheme %>/css/**.*', '<%= pathToTheme %>/**'],
+				files : ['<%= pathToTheme %>/**'],
+				options : {
+					livereload : true
+				}
+			},
+			// Watch for SCSS changes
+			style : {
+				files : ['<%= pathToTheme %>/scss/*.scss', '<%= pathToTheme %>/scss/**/*.scss'],
+				tasks : ['compass:dev', 'autoprefixer:dev'],
 				options : {
 					livereload : true
 				}
