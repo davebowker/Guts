@@ -1,6 +1,8 @@
 [submodule "app/wordpress"]
 	path = app/wordpress
 	url = https://github.com/WordPress/WordPress.git
+	ignore = dirty
 [submodule "app/wp-content/themes/gutsThemeStarter/fonts/genericons"]
 	path = app/wp-content/themes/gutsThemeStarter/fonts/genericons
 	url = https://github.com/Automattic/Genericons
+	ignore = dirty
