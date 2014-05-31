@@ -9,7 +9,7 @@
  * 7) In the watch task, can we pick up the file names/options from the tasks above?? EG. files: ['<%= jshint.files %>']
  * 8) grunt contrib server
  * 9) clean function to remove all generated frunt files
- * 
+ *
  */
 
 module.exports = function(grunt) {
@@ -38,7 +38,19 @@ module.exports = function(grunt) {
 				dest : '<%= pathToTheme %>/style.css'
 			}
 		},
-		
+		bower : {
+			install : {
+				options : {
+					targetDir : 'bower_components_grunt',
+					layout : 'byType',
+					install : true,
+					verbose : false,
+					cleanTargetDir : true,
+					cleanBowerDir : true,
+					bowerOptions : {}
+				}
+			}
+		},
 		copy : {
 			// WordPress
 			setup : {
@@ -61,11 +73,9 @@ module.exports = function(grunt) {
 			//wpconfig: ['app/wp-config-sample.php']
 		},
 		csslint : {
-			files : [
-				'<%= pathToTheme %>/style.css'
-			],
-			options: {
-				csslintrc: '.csslintrc'
+			files : ['<%= pathToTheme %>/style.css'],
+			options : {
+				csslintrc : '.csslintrc'
 			}
 		},
 		compass : {
@@ -99,30 +109,28 @@ module.exports = function(grunt) {
 				}
 			}
 		},
-		concat: {
-			options: {
-				separator: ';'
+		concat : {
+			options : {
+				separator : ';'
 			},
-			dist: {
-				src: [
-					'<%= pathToTheme %>/js/source/*.js'
-				],
-				dest: '<%= pathToTheme %>/js/script.js'
+			dist : {
+				src : ['<%= pathToTheme %>/js/source/*.js'],
+				dest : '<%= pathToTheme %>/js/script.js'
 			}
 		},
-		imagemin: {
-			options: {
-				optimizationLevel: 4,
-				progressive: true,
-				interlace: true,
-				cache: false
+		imagemin : {
+			options : {
+				optimizationLevel : 4,
+				progressive : true,
+				interlace : true,
+				cache : false
 			},
-			dynamic: {
-				files: [{
-					expand: true,
-					cwd: '<%= pathToTheme %>/img',
-					src: ['**/*.{png,jpg,gif,ico}'],
-					dest: '<%= pathToTheme %>/imgOpt'
+			dynamic : {
+				files : [{
+					expand : true,
+					cwd : '<%= pathToTheme %>/img',
+					src : ['**/*.{png,jpg,gif,ico}'],
+					dest : '<%= pathToTheme %>/imgOpt'
 				}]
 			}
 		},
@@ -130,14 +138,10 @@ module.exports = function(grunt) {
 		 * TODO: Target all js files
 		 */
 		jshint : {
-			files : [
-				'Gruntfile.js',
-				'<%= pathToTheme %>/js/script.js',
-				'<%= pathToTheme %>/js/script.min.js'
-			],
-			options: {
-				jshintrc: '.jshintrc',
-				reporter: require('jshint-stylish')
+			files : ['Gruntfile.js', '<%= pathToTheme %>/js/script.js', '<%= pathToTheme %>/js/script.min.js'],
+			options : {
+				jshintrc : '.jshintrc',
+				reporter : require('jshint-stylish')
 			}
 		},
 		// Dynamically add necessary paths to wp-config.php. You will need to edit this.
@@ -204,17 +208,12 @@ module.exports = function(grunt) {
 			 * TODO: Auto switch file paths to optimised image path
 			 */
 			img : {
-				files: '<%= pathToTheme %>/img/**/*.*',
-				tasks: [
-					'imagemin'
-				]
+				files : '<%= pathToTheme %>/img/**/*.*',
+				tasks : ['imagemin']
 			},
 			js : {
-				files: '<%= pathToTheme %>/js/source/*.js',
-				tasks : [
-					'uglify',
-					'jshint'
-				]
+				files : '<%= pathToTheme %>/js/source/*.js',
+				tasks : ['uglify', 'jshint']
 			},
 			// Watch the whole folder for any changes and livereload
 			livereload : {
@@ -241,12 +240,14 @@ module.exports = function(grunt) {
 	// Set up wordpress, copy across wp-content and create index.php and wp-config-sample.php
 	grunt.registerTask('setup', function() {
 		grunt.file.write("app/index.php", '<?php define(\'WP_USE_THEMES\',true);require(dirname(__FILE__).\'/wordpress/wp-blog-header.php\');');
-		grunt.task.run('copy:setup', 'replace:setup', 'clean:setup');
+		grunt.task.run('bower:install', 'copy:setup', 'replace:setup', 'clean:setup');
 		grunt.log.oklns('********************************************');
 		grunt.log.oklns('Guts has done the following tasks:');
-		grunt.log.oklns('1) Written code to your app/wp-config-sample.php file which points to the app/wp-content/ directory outside of the wordpress folder.');
-		grunt.log.oklns('2) Written app/index.php which tells wordpress that it is in a subdirectory');
+		grunt.log.oklns('Installed bower components');
+		grunt.log.oklns('Written code to your app/wp-config-sample.php file which points to the app/wp-content/ directory outside of the wordpress folder.');
+		grunt.log.oklns('Written app/index.php which tells wordpress that it is in a subdirectory');
 		grunt.log.oklns('********************************************');
+
 	});
 
 	// Compile styles, and watch for changes

@@ -34,7 +34,8 @@
     "grunt-contrib-jshint": "*",
     "grunt-contrib-concat": "*",
     "jshint-stylish": "*",
-    "grunt-contrib-csslint": "~0.2.0",
-    "grunt-contrib-imagemin": "~0.7.0"
+    "grunt-contrib-csslint": "*",
+    "grunt-contrib-imagemin": "*",
+    "grunt-bower-task": "*"
   }
 }

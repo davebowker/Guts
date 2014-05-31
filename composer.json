@@ -1,0 +1,33 @@
+{
+	"name": "setupGuts",
+	"type": "library",
+	"description": "PHP package installer for Guts Theme",
+	"homepage": "http://roots.io",
+	"license": "MIT",
+	"config": {
+		"vendor-dir": "composer"
+	},
+	"authors": [
+		{
+			"name": "Dave Bowker",
+			"email": "guts@davebowker.com",
+			"homepage": "https://github.com/davebowker/Guts"
+		}
+	],
+	"repositories": [
+		{
+			"type": "composer",
+			"url": "http://wpackagist.org"
+		}
+	],
+	"extra": {
+		"installer-paths": {
+			"composer/wp-plugins/{$name}": ["type:wordpress-plugin"]
+		}
+	},
+	"require": {
+		"composer/installers": "*",
+		"wpackagist-plugin/akismet": "*",
+		"wpackagist-plugin/w3-total-cache": "*"
+	}
+}

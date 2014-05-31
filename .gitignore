@@ -6,6 +6,7 @@
 .sass-cache
 node_modules/
 bower_components/
+composer/
 app/.htaccess
 app/wp-config.php
 app/wp-config-sample.php
@@ -13,8 +14,6 @@ app/index.php
 sitemap.xml
 sitemap.xml.gz
 imgOpt/
-
-
 
 wordpress/
 twentyten/
