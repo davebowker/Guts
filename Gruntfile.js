@@ -33,12 +33,7 @@ module.exports = function(grunt) {
 		 */
 		autoprefixer : {
 			options : {
-				browsers : ['last 2 versions', '> 1%', 'ie 8', 'ie 9']
-			},
-			dev : {
-				options : {
-					// Target-specific options go here.
-				},
+				browsers : ['last 2 versions', '> 1%', 'ie 8', 'ie 9'],
 				src : '<%= pathToTheme %>/style.css',
 				dest : '<%= pathToTheme %>/style.css'
 			}
@@ -64,6 +59,14 @@ module.exports = function(grunt) {
 			// WordPress
 			setup : ['app/wordpress/wp-config-sample.php', 'app/wp-content/plugins/hello.php', 'app/wp-content/themes/twentyten', 'app/wp-content/themes/twentyeleven', 'app/wp-content/themes/twentytwelve']
 			//wpconfig: ['app/wp-config-sample.php']
+		},
+		csslint : {
+			files : [
+				'<%= pathToTheme %>/style.css'
+			],
+			options: {
+				csslintrc: '.csslintrc'
+			}
 		},
 		compass : {
 			options : {
@@ -133,13 +136,8 @@ module.exports = function(grunt) {
 				'<%= pathToTheme %>/js/script.min.js'
 			],
 			options: {
-				reporter: require('jshint-stylish'),
-				globals: {
-					jQuery: true,
-					console: true,
-					module: true
-				},
-				lastsemic: true
+				jshintrc: '.jshintrc',
+				reporter: require('jshint-stylish')
 			}
 		},
 		// Dynamically add necessary paths to wp-config.php. You will need to edit this.
@@ -228,7 +226,7 @@ module.exports = function(grunt) {
 			// Watch for SCSS changes
 			style : {
 				files : ['<%= pathToTheme %>/scss/*.scss', '<%= pathToTheme %>/scss/**/*.scss'],
-				tasks : ['compass:dev', 'autoprefixer:dev'],
+				tasks : ['compass:dev', 'autoprefixer', 'csslint'],
 				options : {
 					livereload : true
 				}
@@ -252,7 +250,7 @@ module.exports = function(grunt) {
 	});
 
 	// Compile styles, and watch for changes
-	grunt.registerTask('style', ['compass:dev', 'autoprefixer:dev']);
+	grunt.registerTask('style', ['compass:dev', 'autoprefixer']);
 
 	grunt.registerTask('watcher', ['watch']);
 
