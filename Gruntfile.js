@@ -9,6 +9,9 @@
  * 7) In the watch task, can we pick up the file names/options from the tasks above?? EG. files: ['<%= jshint.files %>']
  * 8) grunt contrib server
  * 9) clean function to remove all generated frunt files
+ * 10) Grunt bower copy
+ * 11) Grunt auto install and copy over and make sure all the folders are copied as well
+ * 
  *
  */
 
@@ -39,15 +42,14 @@ module.exports = function(grunt) {
 			}
 		},
 		bower : {
-			install : {
+			setup : {
 				options : {
-					targetDir : 'bower_components_grunt',
-					layout : 'byType',
-					install : true,
-					verbose : false,
-					cleanTargetDir : true,
 					cleanBowerDir : true,
-					bowerOptions : {}
+					cleanTargetDir : true,
+					targetDir : 'bower_components_grunt',
+					layout : 'byComponent',
+					install : true,
+					verbose : true
 				}
 			}
 		},
@@ -79,10 +81,12 @@ module.exports = function(grunt) {
 			}
 		},
 		compass : {
-			options : {
-				//importPath : 'app/wp-content/themes/*',
+			options: {
+				//require: 'susy',
+				//extensionsPath: '',
+				importPath : 'app/wp-content/themes/*',
 				basePath : '<%= pathToTheme %>',
-				cssDir : '.', // '.' is the same folder level
+				ssDir : '.', // '.' is the same folder level
 				sassDir : 'scss',
 				imagesDir : 'img',
 				javascriptsDir : 'js',
@@ -240,7 +244,7 @@ module.exports = function(grunt) {
 	// Set up wordpress, copy across wp-content and create index.php and wp-config-sample.php
 	grunt.registerTask('setup', function() {
 		grunt.file.write("app/index.php", '<?php define(\'WP_USE_THEMES\',true);require(dirname(__FILE__).\'/wordpress/wp-blog-header.php\');');
-		grunt.task.run('bower:install', 'copy:setup', 'replace:setup', 'clean:setup');
+		grunt.task.run('bower:setup', 'copy:setup', 'replace:setup', 'clean:setup');
 		grunt.log.oklns('********************************************');
 		grunt.log.oklns('Guts has done the following tasks:');
 		grunt.log.oklns('Installed bower components');
