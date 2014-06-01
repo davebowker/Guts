@@ -32,7 +32,6 @@
     "grunt-autoprefixer": "*",
     "grunt-contrib-connect": "*",
     "grunt-contrib-jshint": "*",
-    "grunt-contrib-concat": "*",
     "jshint-stylish": "*",
     "grunt-contrib-csslint": "*",
     "grunt-contrib-imagemin": "*",

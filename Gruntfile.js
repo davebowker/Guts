@@ -1,17 +1,16 @@
 /*
  * TODO:
- * 1) Deploy script to deploy only the app directory
- * 2) Image Compression
- * 3) JS concat
- * 4) CSS + JS Lint
- * 5) Watch for js
- * 6) For deploy, do not delete the wp-config-sample but rather do not upload it to production server. MAKE AN AWESOME BUILD FILE.
- * 7) In the watch task, can we pick up the file names/options from the tasks above?? EG. files: ['<%= jshint.files %>']
- * 8) grunt contrib server
- * 9) clean function to remove all generated frunt files
- * 10) Grunt bower copy
- * 11) Grunt auto install and copy over and make sure all the folders are copied as well
+ * Watch: Only watch for changed files
+ * Deploy: Create a dist folder
+ * Deploy: Automatic deployments (Capistrano?)
+ * Q&A: Ask for name of theme. Use that variable for creating folders etc.
+ * Test Server: Use grunt-contrib-server to create a local server
+ * Bower: Why does is not copy everything? (Bower main?)
+ * Compass: Load susy and bourbon
  * 
+ * 
+ * 11) Grunt auto install and copy over and make sure all the folders are copied as well
+ *
  *
  */
 
@@ -49,29 +48,15 @@ module.exports = function(grunt) {
 					targetDir : 'bower_components_grunt',
 					layout : 'byComponent',
 					install : true,
-					verbose : true
+					verbose : true,
+					bowerOptions : {}
 				}
-			}
-		},
-		copy : {
-			// WordPress
-			setup : {
-				files : [{
-					expand : true,
-					cwd : 'app/wordpress',
-					src : 'wp-content/**',
-					dest : 'app'
-				}, {
-					expand : true,
-					cwd : 'app/wordpress',
-					src : 'wp-config-sample.php',
-					dest : 'app'
-				}]
 			}
 		},
 		clean : {
 			// WordPress
-			setup : ['app/wordpress/wp-config-sample.php', 'app/wp-content/plugins/hello.php', 'app/wp-content/themes/twentyten', 'app/wp-content/themes/twentyeleven', 'app/wp-content/themes/twentytwelve']
+			setup : ['app/wordpress/wp-config-sample.php', 'app/wp-content/plugins/hello.php', 'app/wp-content/themes/twentyten', 'app/wp-content/themes/twentyeleven', 'app/wp-content/themes/twentytwelve'],
+			imagemin: ['<%= pathToTheme %>/imgOpt/']
 			//wpconfig: ['app/wp-config-sample.php']
 		},
 		csslint : {
@@ -81,12 +66,10 @@ module.exports = function(grunt) {
 			}
 		},
 		compass : {
-			options: {
-				//require: 'susy',
-				//extensionsPath: '',
-				importPath : 'app/wp-content/themes/*',
+			options : {
+				//importPath : 'app/wp-content/themes/*',
 				basePath : '<%= pathToTheme %>',
-				ssDir : '.', // '.' is the same folder level
+				cssDir : '.', // '.' is the same folder level
 				sassDir : 'scss',
 				imagesDir : 'img',
 				javascriptsDir : 'js',
@@ -113,13 +96,29 @@ module.exports = function(grunt) {
 				}
 			}
 		},
-		concat : {
-			options : {
-				separator : ';'
+		copy : {
+			// WordPress
+			setup : {
+				files : [{
+					expand : true,
+					cwd : 'app/wordpress',
+					src : 'wp-content/**',
+					dest : 'app'
+				}, {
+					expand : true,
+					cwd : 'app/wordpress',
+					src : 'wp-config-sample.php',
+					dest : 'app'
+				}]
 			},
-			dist : {
-				src : ['<%= pathToTheme %>/js/source/*.js'],
-				dest : '<%= pathToTheme %>/js/script.js'
+			js : {
+				files : [{
+					expand : true,
+					src : ['bower_components_grunt/jquery/jquery.js', 'bower_components_grunt/hashgrid/hashgrid.js', 'bower_components_grunt/modernizr/modernizr.js'],
+					dest : '<%= pathToTheme %>/js/vendor',
+					filter : 'isFile',
+					flatten : true
+				}]
 			}
 		},
 		imagemin : {
@@ -174,6 +173,14 @@ module.exports = function(grunt) {
 						return [phpTag + prewrap1 + prewrap2 + wp_home + wp_siteurl + wp_content_dir + wp_content_url + disallowFileEdit + compressCSS + compressScripts + concatenateScripts + enforceGZIP + postwrap];
 					}
 				}]
+			},
+			imagemin : {
+				src : ['<%= pathToTheme %>/style.css'],
+				overwrite : true,
+				replacements : [{
+					from : 'img/',
+					to : 'imgOpt/'
+				}]
 			}
 		},
 		/*
@@ -195,12 +202,14 @@ module.exports = function(grunt) {
 					beautify : true
 				},
 				files : {
-					'<%= pathToTheme %>/js/script.js' : ['<%= pathToTheme %>/js/source/*.js']
+					'<%= pathToTheme %>/js/script.js' : ['<%= pathToTheme %>/js/source/*.js'],
+					'<%= pathToTheme %>/js/vendor.js' : ['<%= pathToTheme %>/js/vendor/*.js']
 				}
 			},
 			prod : {
 				files : {
-					'<%= pathToTheme %>/js/script.min.js' : ['<%= pathToTheme %>/js/source/*.js']
+					'<%= pathToTheme %>/js/script.min.js' : ['<%= pathToTheme %>/js/source/*.js'],
+					'<%= pathToTheme %>/js/vendor.min.js' : ['<%= pathToTheme %>/js/vendor/*.js']
 				}
 			}
 		},
@@ -208,9 +217,6 @@ module.exports = function(grunt) {
 		 * TODO: Compile js files and compress images
 		 */
 		watch : {
-			/*
-			 * TODO: Auto switch file paths to optimised image path
-			 */
 			img : {
 				files : '<%= pathToTheme %>/img/**/*.*',
 				tasks : ['imagemin']
@@ -219,7 +225,7 @@ module.exports = function(grunt) {
 				files : '<%= pathToTheme %>/js/source/*.js',
 				tasks : ['uglify', 'jshint']
 			},
-			// Watch the whole folder for any changes and livereload
+			// Catch all for content updates
 			livereload : {
 				files : ['<%= pathToTheme %>/**'],
 				options : {
@@ -229,10 +235,7 @@ module.exports = function(grunt) {
 			// Watch for SCSS changes
 			style : {
 				files : ['<%= pathToTheme %>/scss/*.scss', '<%= pathToTheme %>/scss/**/*.scss'],
-				tasks : ['compass:dev', 'autoprefixer', 'csslint'],
-				options : {
-					livereload : true
-				}
+				tasks : ['compass:dev', 'autoprefixer', 'csslint', 'replace:imagemin']
 			}
 		}
 	});
@@ -244,20 +247,17 @@ module.exports = function(grunt) {
 	// Set up wordpress, copy across wp-content and create index.php and wp-config-sample.php
 	grunt.registerTask('setup', function() {
 		grunt.file.write("app/index.php", '<?php define(\'WP_USE_THEMES\',true);require(dirname(__FILE__).\'/wordpress/wp-blog-header.php\');');
-		grunt.task.run('bower:setup', 'copy:setup', 'replace:setup', 'clean:setup');
+		grunt.task.run('bower:setup', 'copy:setup', 'copy:js', 'replace:setup', 'clean:setup');
 		grunt.log.oklns('********************************************');
 		grunt.log.oklns('Guts has done the following tasks:');
 		grunt.log.oklns('Installed bower components');
 		grunt.log.oklns('Written code to your app/wp-config-sample.php file which points to the app/wp-content/ directory outside of the wordpress folder.');
 		grunt.log.oklns('Written app/index.php which tells wordpress that it is in a subdirectory');
 		grunt.log.oklns('********************************************');
-
 	});
 
 	// Compile styles, and watch for changes
 	grunt.registerTask('style', ['compass:dev', 'autoprefixer']);
-
-	grunt.registerTask('watcher', ['watch']);
 
 	grunt.registerTask('production', function() {
 		grunt.task.run('compass:production');
