@@ -1,33 +1,46 @@
 /*
  * TODO:
  * Watch: Only watch for changed files
- * Deploy: Create a dist folder
+ * Deploy: Create a dist folder, copy everything across. Minify and link. 
  * Deploy: Automatic deployments (Capistrano?)
- * Q&A: Ask for name of theme. Use that variable for creating folders etc.
+ * Q&A: Ask for name of theme. Use that variable for creating folders etc. (pkg.name)
  * Test Server: Use grunt-contrib-server to create a local server
  * Bower: Why does is not copy everything? (Bower main?)
  * Compass: Load susy and bourbon
- * 
- * 
- * 11) Grunt auto install and copy over and make sure all the folders are copied as well
+ * Banner: Create a better banner file for the top of js/css
+ * Banner (?): Grunt versioning to update package.json, Gruntfile.js, css/js, etc to increment on every update (Also include modified date)
+ * Favicon: Have a file in img/ called favicon at 512x512px and auto create smaller sizes
+ * PHP Lint: For WP template files
+ * Generate a list of 'patch files' for wp-config, and to add into functions.php (eg, load css/js/favicon)
+ * Img sprite generation
+ * Ask to generate GA code. FBOG. Google Plus Authors. Create a (template) file for the user to use, or automatically insert it
+ *
+ * TODO: (Optimisation)
+ * Better setup. Make it the grunt default task.
  *
  *
  */
 
 module.exports = function(grunt) {
 
-	// Set UTF-8 Charset
+	/*
+	 * Set UTF-8 character set for this file
+	 */
 	grunt.file.defaultEncoding = 'utf8';
 
-	// Load grunt packages
+	/*
+	 * Load all packages starting with 'grunt-'
+	 */
 	require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
-	// Set our instructions
+	/*
+	 * Begin our configs for each package
+	 */
 	grunt.initConfig({
-		/*
-		 * Set up variables for a more gruntier grunt.
-		 */
 		pkg : grunt.file.readJSON('package.json'),
+		/*
+		 * Define variables for a more gruntier grunt
+		 */
 		pathToTheme : 'app/wp-content/themes/gutsThemeStarter',
 
 		/*
@@ -40,6 +53,9 @@ module.exports = function(grunt) {
 				dest : '<%= pathToTheme %>/style.css'
 			}
 		},
+		/*
+		 * Run bower from Grunt
+		 */
 		bower : {
 			setup : {
 				options : {
@@ -53,18 +69,27 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+		/*
+		 * Clean up files and folders
+		 */
 		clean : {
 			// WordPress
 			setup : ['app/wordpress/wp-config-sample.php', 'app/wp-content/plugins/hello.php', 'app/wp-content/themes/twentyten', 'app/wp-content/themes/twentyeleven', 'app/wp-content/themes/twentytwelve'],
-			imagemin: ['<%= pathToTheme %>/imgOpt/']
+			imagemin : ['<%= pathToTheme %>/imgOpt/']
 			//wpconfig: ['app/wp-config-sample.php']
 		},
+		/*
+		 * Lint our CSS
+		 */
 		csslint : {
 			files : ['<%= pathToTheme %>/style.css'],
 			options : {
 				csslintrc : '.csslintrc'
 			}
 		},
+		/*
+		 * Run Compass
+		 */
 		compass : {
 			options : {
 				//importPath : 'app/wp-content/themes/*',
@@ -83,9 +108,6 @@ module.exports = function(grunt) {
 					force : true
 				}
 			},
-			/*
-			 * TODO: Update production settings
-			 */
 			prod : {
 				options : {
 					environment : 'production',
@@ -97,7 +119,6 @@ module.exports = function(grunt) {
 			}
 		},
 		copy : {
-			// WordPress
 			setup : {
 				files : [{
 					expand : true,
@@ -137,9 +158,6 @@ module.exports = function(grunt) {
 				}]
 			}
 		},
-		/*
-		 * TODO: Target all js files
-		 */
 		jshint : {
 			files : ['Gruntfile.js', '<%= pathToTheme %>/js/script.js', '<%= pathToTheme %>/js/script.min.js'],
 			options : {
@@ -147,7 +165,10 @@ module.exports = function(grunt) {
 				reporter : require('jshint-stylish')
 			}
 		},
-		// Dynamically add necessary paths to wp-config.php. You will need to edit this.
+		/*
+		 * TODO: 
+		 * Can this be created in a seperate file, then loaded in?
+		 */
 		replace : {
 			setup : {
 				src : ['app/wp-config-sample.php'],
@@ -184,8 +205,7 @@ module.exports = function(grunt) {
 			}
 		},
 		/*
-		 * TODO: Understand this!
-		 * Queue up all files
+		 * Concat our scripts, and uglify (minify) them
 		 */
 		uglify : {
 			options : {
@@ -214,7 +234,7 @@ module.exports = function(grunt) {
 			}
 		},
 		/*
-		 * TODO: Compile js files and compress images
+		 * Watch our project for any changes, then compile them automatically
 		 */
 		watch : {
 			img : {
