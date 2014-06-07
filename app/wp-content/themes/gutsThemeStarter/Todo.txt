@@ -3,3 +3,8 @@ Webmaster tools
 Google Analytics
 CSS Link cache busting
 
+
+
+
+CSS page load animation
+Ajax page loading
