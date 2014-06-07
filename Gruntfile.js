@@ -9,8 +9,6 @@
  * Compass: Load susy and bourbon
  * Banner: Create a better banner file for the top of js/css
  * Banner (?): Grunt versioning to update package.json, Gruntfile.js, css/js, etc to increment on every update (Also include modified date)
- * Favicon: Have a file in img/ called favicon at 512x512px and auto create smaller sizes
- * PHP Lint: For WP template files
  * Generate a list of 'patch files' for wp-config, and to add into functions.php (eg, load css/js/favicon)
  * Img sprite generation
  * Ask to generate GA code. FBOG. Google Plus Authors. Create a (template) file for the user to use, or automatically insert it
@@ -224,7 +222,6 @@ module.exports = function(grunt) {
 		 */
 		uglify : {
 			options : {
-				banner : '/*! <%= pkg.name %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd hh:mm") %> */\n',
 				compress : {
 					drop_console : true
 				},
@@ -248,6 +245,21 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+		usebanner: {
+			dev: {
+				options: {
+					position: 'top',
+					banner: '/*! \n Name:\t\t\t<%= pkg.name %> \n Version:\t\t<%= pkg.version %> \n Updated:\t\t<%= grunt.template.today("yyyy-mm-dd hh:mm") %> \n Author:\t\t<%= pkg.author %> \n Author URL:\t<%= pkg.author_url %> \n Issues:\t\t<%= pkg.bugs.url %> \n*/\n',
+					linebreak: true
+				},
+				files: {
+					src: [
+						'<%= pathToTheme %>/js/*.js',
+						'<%= pathToTheme %>/style.css'
+					]
+				}
+			}
+		},
 		/*
 		 * Watch our project for any changes, then compile them automatically
 		 */
@@ -258,7 +270,7 @@ module.exports = function(grunt) {
 			},
 			js : {
 				files : '<%= pathToTheme %>/js/source/*.js',
-				tasks : ['uglify', 'jshint']
+				tasks : ['uglify:dev', 'jshint']
 			},
 			// Catch all for content updates
 			livereload : {

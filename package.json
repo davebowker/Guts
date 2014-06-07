@@ -1,8 +1,9 @@
 {
-  "name": "setupGuts",
+  "name": "gutsThemeStarter",
   "description": "Initial dev environment setup. Haaawww yeaaahhh.",
-  "author": "Dave Bowker <guts@davebowker.com> (http://twitter.com/davebowker)",
-  "themeName": "gutsThemeStarter",
+  "author": "Dave Bowker",
+  "author_email": "guts@davebowker.com",
+  "author_url": "http://davebowker.com",
   "repository": {
     "type": "git",
     "url": "http://github.com/davebowker/Guts.git"
@@ -36,6 +37,7 @@
     "grunt-contrib-csslint": "*",
     "grunt-contrib-imagemin": "*",
     "grunt-bower-task": "*",
-    "grunt-phplint": "*"
+    "grunt-phplint": "*",
+    "grunt-banner": "~0.2.3"
   }
 }
