@@ -69,6 +69,21 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+		bump: {
+			options: {
+				files: ['package.json'],
+				updateConfigs: [],
+				commit: true,
+				commitMessage: 'Release v%VERSION%',
+				commitFiles: ['-a'],
+				createTag: true,
+				tagName: 'v%VERSION%',
+				tagMessage: 'Version %VERSION%',
+				push: true,
+				pushTo: 'upstream',
+				gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d'
+			}
+		},
 		/*
 		 * Clean up files and folders
 		 */
@@ -245,6 +260,9 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+		/*
+		 * Generate a consistent banner file
+		 */
 		usebanner: {
 			dev: {
 				options: {
