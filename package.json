@@ -1,7 +1,7 @@
 {
   "name": "gutsThemeStarter",
   "description": "Initial dev environment setup. Haaawww yeaaahhh.",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "author": "Dave Bowker",
   "author_email": "guts@davebowker.com",
   "author_url": "http://davebowker.com",
@@ -38,6 +38,9 @@
     "grunt-bower-task": "*",
     "grunt-phplint": "*",
     "grunt-banner": "*",
-    "grunt-bump": "0.0.14"
+    "grunt-bump": "0.0.14",
+    "load-grunt-configs": "~0.4.0",
+    "time-grunt": "~0.3.2",
+    "load-grunt-tasks": "~0.4.0"
   }
 }
