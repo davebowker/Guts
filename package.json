@@ -12,7 +12,7 @@
     "url": "https://github.com/davebowker/Guts/issues"
   },
   "homepage": "https://github.com/davebowker/Guts",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "Gruntfile.js",
   "license": "BSD-2-Clause",
   "dependencies": {},
@@ -38,8 +38,7 @@
     "grunt-contrib-imagemin": "*",
     "grunt-bower-task": "*",
     "grunt-phplint": "*",
-    "grunt-banner": "~0.2.3",
-    "grunt-version": "~0.3.0",
+    "grunt-banner": "*",
     "grunt-bump": "0.0.14"
   }
 }
