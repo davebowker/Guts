@@ -21,6 +21,8 @@
  *
  */
 
+"use strict"; //ECMA Script 5 Enabled
+
 module.exports = function(grunt) {
 
 	/*

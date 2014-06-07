@@ -1,4 +1,4 @@
-/*! setupGuts - v0.1.0 - 2014-06-01 06:06 */
+/*! setupGuts - v0.1.0 - 2014-06-07 03:06 */
 "undefined" == typeof jQuery && alert("Hashgrid: jQuery not loaded. Make sure it's linked to your pages.");
 
 var hashgrid = function(a) {
