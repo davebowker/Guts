@@ -88,7 +88,7 @@ module.exports = function(grunt) {
 			}
 		},
 		/*
-		 * Clean up files and folders
+		 * Clean up files and folders 
 		 */
 		clean : {
 			// WordPress
