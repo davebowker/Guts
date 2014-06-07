@@ -7,8 +7,6 @@
  * Test Server: Use grunt-contrib-server to create a local server
  * Bower: Why does is not copy everything? (Bower main?)
  * Compass: Load susy and bourbon
- * Banner: Create a better banner file for the top of js/css
- * Banner (?): Grunt versioning to update package.json, Gruntfile.js, css/js, etc to increment on every update (Also include modified date)
  * Generate a list of 'patch files' for wp-config, and to add into functions.php (eg, load css/js/favicon)
  * Img sprite generation
  * Ask to generate GA code. FBOG. Google Plus Authors. Create a (template) file for the user to use, or automatically insert it
@@ -27,7 +25,7 @@ module.exports = function(grunt) {
 	 * Set UTF-8 character set for this file
 	 */
 	grunt.file.defaultEncoding = 'utf8';
-
+	
 	/*
 	 * Load all packages starting with 'grunt-'
 	 */
@@ -37,11 +35,20 @@ module.exports = function(grunt) {
 	 * Begin our configs for each package
 	 */
 	grunt.initConfig({
+		/*
+		 * Reference package.json
+		 */
 		pkg : grunt.file.readJSON('package.json'),
+		
 		/*
 		 * Define variables for a more gruntier grunt
 		 */
 		pathToTheme : 'app/wp-content/themes/gutsThemeStarter',
+		
+		/*
+		 * Set up a banner template
+		 */
+		banner: '/*! \n Name:\t\t\t<%= pkg.name %> \n Version:\t\t<%= pkg.version %> \n Updated:\t\t<%= grunt.template.today("yyyy-mm-dd hh:mm") %> \n Author:\t\t<%= pkg.author %> \n Author URL:\t<%= pkg.author_url %> \n Issues:\t\t<%= pkg.bugs.url %> \n*/\n',
 
 		/*
 		 * Auto prefix CSS with browser variations (eg, -moz-, -webkit-)
@@ -270,7 +277,7 @@ module.exports = function(grunt) {
 			dev: {
 				options: {
 					position: 'top',
-					banner: '/*! \n Name:\t\t\t<%= pkg.name %> \n Version:\t\t<%= pkg.version %> \n Updated:\t\t<%= grunt.template.today("yyyy-mm-dd hh:mm") %> \n Author:\t\t<%= pkg.author %> \n Author URL:\t<%= pkg.author_url %> \n Issues:\t\t<%= pkg.bugs.url %> \n*/\n',
+					banner: '<%= banner %>',
 					linebreak: true
 				},
 				files: {
