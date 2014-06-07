@@ -69,13 +69,16 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+		/*
+		 * Bump versions
+		 */
 		bump: {
 			options: {
 				files: ['package.json'],
 				updateConfigs: [],
 				commit: true,
 				commitMessage: 'Release v%VERSION%',
-				commitFiles: ['package.json'],
+				commitFiles: ['.'],
 				createTag: true,
 				tagName: 'v%VERSION%',
 				tagMessage: 'Version %VERSION%',

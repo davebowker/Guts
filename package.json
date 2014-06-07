@@ -12,7 +12,7 @@
     "url": "https://github.com/davebowker/Guts/issues"
   },
   "homepage": "https://github.com/davebowker/Guts",
-  "version": "0.1.10",
+  "version": "0.1.13",
   "main": "Gruntfile.js",
   "license": "BSD-2-Clause",
   "dependencies": {},
