@@ -23,4 +23,4 @@ module.exports = {
 		files : ['<%= paths.theme %>/scss/*.scss', '<%= paths.theme %>/scss/**/*.scss'],
 		tasks : ['compass:dev', 'autoprefixer', 'csslint', 'replace:imagemin']
 	}
-}; 
+};
