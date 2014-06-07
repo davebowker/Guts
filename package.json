@@ -1,6 +1,7 @@
 {
   "name": "gutsThemeStarter",
   "description": "Initial dev environment setup. Haaawww yeaaahhh.",
+  "version": "0.1.0",
   "author": "Dave Bowker",
   "author_email": "guts@davebowker.com",
   "author_url": "http://davebowker.com",
@@ -11,8 +12,6 @@
   "bugs": {
     "url": "https://github.com/davebowker/Guts/issues"
   },
-  "homepage": "https://github.com/davebowker/Guts",
-  "version": "1.0.0",
   "main": "Gruntfile.js",
   "license": "BSD-2-Clause",
   "dependencies": {},
