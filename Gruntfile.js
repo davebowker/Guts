@@ -166,6 +166,19 @@ module.exports = function(grunt) {
 			}
 		},
 		/*
+		 * Lint our PHP
+		 */
+		phplint: {
+			options: {
+				phpCmd: "c:/xampp/php/php.exe", // Or "c:\EasyPHP-5.3.8.1\PHP.exe"
+				phpArgs: {
+					"-l": null
+				},
+				spawnLimit: 10
+			},
+			all: ["<%= pathToTheme %>/**/*.php"]
+		},
+		/*
 		 * TODO: 
 		 * Can this be created in a seperate file, then loaded in?
 		 */
@@ -251,6 +264,10 @@ module.exports = function(grunt) {
 				options : {
 					livereload : true
 				}
+			},
+			php : {
+				files : ['<%= pathToTheme %>/**/*.php'],
+				tasks : ['phplint']
 			},
 			// Watch for SCSS changes
 			style : {

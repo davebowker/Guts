@@ -35,6 +35,7 @@
     "jshint-stylish": "*",
     "grunt-contrib-csslint": "*",
     "grunt-contrib-imagemin": "*",
-    "grunt-bower-task": "*"
+    "grunt-bower-task": "*",
+    "grunt-phplint": "*"
   }
 }
