@@ -5,8 +5,9 @@ Guts is a seed starter for working with WordPress (WP). In just a few short comm
 
 1. Create a new project directory and `cd` into it
 
-	`mkdir projectName'
-	`cd projectName'
+	`mkdir projectName`
+	
+	`cd projectName`
 	
 2. Clone Guts to your project directory
 
