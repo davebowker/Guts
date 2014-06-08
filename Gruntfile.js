@@ -31,7 +31,7 @@ module.exports = function(grunt) {
 	 */
 	var options = {
 		pkg : grunt.file.readJSON('package.json'),
-		//banner : '/*! \n Name:\t\t\t<%= pkg.name %> \n Version:\t\t<%= pkg.version %> \n Updated:\t\t<%= grunt.template.today("yyyy-mm-dd hh:mm") %> \n Author:\t\t<%= pkg.author %> \n Author URL:\t<%= pkg.author_url %> \n Issues:\t\t<%= pkg.bugs.url %> \n*/\n',
+		//banner : '/*! \n Name:\t\t\t<%= pkg.name %> \n Version:\t\t<%= pkg.version %> \n Updated:\t\t<%= grunt.template.today("yyyy-mm-dd hh:mm") %> \n Author:\t\t<%= pkg.author.name %> \n Author URL:\t<%= pkg.author.url %> \n Issues:\t\t<%= pkg.bugs.url %> \n*/\n',
 		paths : {
 			app : 'app/',
 			theme : 'app/wp-content/themes/gutsThemeStarter/'
