@@ -12,10 +12,7 @@ module.exports = {
 			cwd : 'app/wordpress',
 			src : 'wp-config-sample.php',
 			dest : 'app'
-		}]
-	},
-	js : {
-		files : [{
+		}, {
 			expand : true,
 			src : ['bower_components_grunt/jquery/jquery.js', 'bower_components_grunt/hashgrid/hashgrid.js', 'bower_components_grunt/modernizr/modernizr.js'],
 			dest : '<%= paths.theme %>/js/vendor',
@@ -23,4 +20,4 @@ module.exports = {
 			flatten : true
 		}]
 	}
-}; 
+};

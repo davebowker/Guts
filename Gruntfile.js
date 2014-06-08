@@ -31,7 +31,7 @@ module.exports = function(grunt) {
 	 */
 	var options = {
 		pkg : grunt.file.readJSON('package.json'),
-		//banner : '/*! \n Name:\t\t\t<%= pkg.name %> \n Version:\t\t<%= pkg.version %> \n Updated:\t\t<%= grunt.template.today("yyyy-mm-dd hh:mm") %> \n Author:\t\t<%= pkg.author.name %> \n Author URL:\t<%= pkg.author.url %> \n Issues:\t\t<%= pkg.bugs.url %> \n*/\n',
+		banner : '/*! \n Name:\t\t\t<%= pkg.name %> \n Version:\t\t<%= pkg.version %> \n Updated:\t\t<%= grunt.template.today("yyyy-mm-dd hh:mm") %> \n Author:\t\t<%= pkg.author.name %> \n Author URL:\t<%= pkg.author.url %> \n Issues:\t\t<%= pkg.bugs.url %> \n*/\n',
 		paths : {
 			app : 'app/',
 			theme : 'app/wp-content/themes/gutsThemeStarter/'
@@ -67,18 +67,28 @@ module.exports = function(grunt) {
 		grunt.task.run([
 			'compass:dev',
 			'autoprefixer',
+			'csslint',
 			'uglify:dev',
-			'jshint:dev'
+			'jshint',
+			'phplint'
 		]);
 	});
 
 	/*
 	 * Production focused tasks
 	 */
-	grunt.registerTask('prod', [
-		'compass:prod'
-	]);
-	
+	grunt.registerTask('prod', function () {
+		grunt.log.subhead('Running production tasks');
+		grunt.task.run([
+			'clean:imagemin',
+			'imagemin',
+			'compass:prod',
+			'autoprefixer',
+			'uglify:prod',
+			'usebanner:prod',
+			'bump'
+		]);
+	});
 
 	/*
 	 * Initial project setup
@@ -88,7 +98,6 @@ module.exports = function(grunt) {
 		grunt.task.run([
 			'bower:setup',
 			'copy:setup',
-			'copy:js',
 			'replace:setup',
 			'clean:setup'
 		]);

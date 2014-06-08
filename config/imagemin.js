@@ -7,7 +7,7 @@ module.exports = {
 		interlace : true,
 		cache : false
 	},
-	dynamic : {
+	all : {
 		files : [{
 			expand : true,
 			cwd : '<%= paths.theme %>/img',

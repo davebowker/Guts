@@ -8,5 +8,7 @@ module.exports = {
 		},
 		spawnLimit : 10
 	},
-	all : ['<%= paths.theme %>/**/*.php']
+	all : [
+		'<%= paths.theme %>/**/*.php'
+	]
 }; 
