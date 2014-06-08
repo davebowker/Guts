@@ -11,8 +11,8 @@
 	},
 	"license": "BSD-2-Clause",
 	"author": { 
-		"name" : "Dave Bowker"
-		"email" : "guts@davebowker.com"
+		"name" : "Dave Bowker",
+		"email" : "guts@davebowker.com",
 		"url" : "http://davebowker.com"
 	},
 	"repository": {
