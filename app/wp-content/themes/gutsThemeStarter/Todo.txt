@@ -8,3 +8,35 @@ CSS Link cache busting
 
 CSS page load animation
 Ajax page loading
+
+
+
+
+
+//
+//Server
+//
+http://generatewp.com/wp-config/
+https://help.github.com/articles/remove-sensitive-data
+Better htaccess
+cloudflare
+google analytics
+optimisation // cacheing // pagespeed // yslow
+http://codex.wordpress.org/WordPress_Optimization  -- tools at the bottom
+http://www.sparringmind.com/speed-up-wordpress/
+
+//
+//Affiliates Ideas
+//
+Buysell ads
+doubleclick
+run own ad market
+blog post sponsor
+author write for us
+
+
+//
+//Features
+//
+Email signup newsletter/mailing list
+http://themeshaper.com/2012/02/13/introducing-the-underscores-theme/ -- functions.php

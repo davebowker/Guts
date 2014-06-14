@@ -1,54 +1,58 @@
 {
-	"name": "gutsThemeStarter",
-	"version": "0.1.7",
-	"description": "Initial dev environment setup. Haaawww yeaaahhh.",
-	"keywords": [
-		"dave", "bowker", "davebowker", "guts", "boilerplate"
-	],
-	"homepage": "https://github.com/davebowker/Guts",
-	"bugs": {
-		"url": "https://github.com/davebowker/Guts/issues"
-	},
-	"license": "BSD-2-Clause",
-	"author": { 
-		"name" : "Dave Bowker",
-		"email" : "guts@davebowker.com",
-		"url" : "http://davebowker.com"
-	},
-	"repository": {
-		"type": "git",
-		"url": "http://github.com/davebowker/Guts.git"
-	},
-	"main": "Gruntfile.js",
-	"dependencies": {},
-	"devDependencies": {
-		"bower": "*",
-		"grunt-cli": "*",
-		"grunt": "*",
-		"grunt-contrib-copy": "*",
-		"grunt-contrib-clean": "*",
-		"grunt-contrib-compass": "*",
-		"grunt-contrib-watch": "*",
-		"compass": "*",
-		"bourbon": "*",
-		"grunt-text-replace": "*",
-		"grunt-contrib-uglify": "*",
-		"matchdep": "*",
-		"node-bourbon": "*",
-		"grunt-autoprefixer": "*",
-		"grunt-contrib-connect": "*",
-		"grunt-contrib-jshint": "*",
-		"jshint-stylish": "*",
-		"grunt-contrib-csslint": "*",
-		"grunt-contrib-imagemin": "*",
-		"grunt-bower-task": "*",
-		"grunt-phplint": "*",
-		"grunt-banner": "*",
-		"grunt-bump": "*",
-		"load-grunt-configs": "*",
-		"time-grunt": "*",
-		"grunt-init": "*"
-	},
-	"scripts": {
-	}
+  "name": "gutsThemeStarter",
+  "version": "0.1.8",
+  "description": "Initial dev environment setup. Haaawww yeaaahhh.",
+  "keywords": [
+    "dave",
+    "bowker",
+    "davebowker",
+    "guts",
+    "boilerplate"
+  ],
+  "homepage": "https://github.com/davebowker/Guts",
+  "bugs": {
+    "url": "https://github.com/davebowker/Guts/issues"
+  },
+  "license": "BSD-2-Clause",
+  "author": {
+    "name": "Dave Bowker",
+    "email": "guts@davebowker.com",
+    "url": "http://davebowker.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/davebowker/Guts.git"
+  },
+  "main": "Gruntfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "bower": "*",
+    "grunt-cli": "*",
+    "grunt": "*",
+    "grunt-contrib-copy": "*",
+    "grunt-contrib-clean": "*",
+    "grunt-contrib-compass": "*",
+    "grunt-contrib-watch": "*",
+    "compass": "*",
+    "bourbon": "*",
+    "grunt-text-replace": "*",
+    "grunt-contrib-uglify": "*",
+    "matchdep": "*",
+    "node-bourbon": "*",
+    "grunt-autoprefixer": "*",
+    "grunt-contrib-connect": "*",
+    "grunt-contrib-jshint": "*",
+    "jshint-stylish": "*",
+    "grunt-contrib-csslint": "*",
+    "grunt-contrib-imagemin": "*",
+    "grunt-bower-task": "*",
+    "grunt-phplint": "*",
+    "grunt-banner": "*",
+    "grunt-bump": "*",
+    "load-grunt-configs": "*",
+    "time-grunt": "*",
+    "grunt-init": "*",
+    "grunt-shell": "*"
+  },
+  "scripts": {}
 }

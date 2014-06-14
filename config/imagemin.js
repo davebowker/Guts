@@ -4,8 +4,7 @@ module.exports = {
 	options : {
 		optimizationLevel : 4,
 		progressive : true,
-		interlace : true,
-		cache : false
+		interlace : true
 	},
 	all : {
 		files : [{
