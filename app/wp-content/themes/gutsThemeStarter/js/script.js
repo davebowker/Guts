@@ -1,5 +1,14 @@
 /*! 
  Name:			gutsThemeStarter 
+ Version:		0.0.1 
+ Updated:		2014-06-14 06:06 
+ Author:		Dave Bowker 
+ Author URL:	http://davebowker.com 
+ Issues:		https://github.com/davebowker/Guts/issues 
+*/
+
+/*! 
+ Name:			gutsThemeStarter 
  Version:		0.1.9 
  Updated:		2014-06-14 06:06 
  Author:		Dave Bowker 
