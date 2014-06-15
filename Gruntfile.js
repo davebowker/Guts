@@ -31,6 +31,7 @@ module.exports = function(grunt) {
 	 */
 	var options = {
 		pkg : grunt.file.readJSON("package.json"),
+		secret: grunt.file.readJSON('secret.json'),
 		banner : "/*! \n Name:\t\t\t<%= pkg.name %> \n Version:\t\t<%= pkg.version %> \n Updated:\t\t<%= grunt.template.today(\"yyyy-mm-dd hh:mm\") %> \n Author:\t\t<%= pkg.author.name %> \n Author URL:\t<%= pkg.author.url %> \n Issues:\t\t<%= pkg.bugs.url %> \n*/\n",
 		paths : {
 			app : "app/",
@@ -48,16 +49,6 @@ module.exports = function(grunt) {
 	 */
 	var configs = require("load-grunt-configs")(grunt, options);
 	grunt.initConfig(configs);
-
-	/*
-	* TODO: Grunt setup a server
-	*/
-	// grunt.registerTask("serve", function(target) {
-	// if (target === "dist") {
-	// return grunt.task.run(["build", "connect:dist:keepalive"]);
-	// }
-	// grunt.task.run(["clean:server", "concurrent:server", "autoprefixer", "connect:livereload", "watch"]);
-	// });
 	
 	/*
 	 * Development focused tasks
@@ -73,7 +64,7 @@ module.exports = function(grunt) {
 			"phplint"
 		]);
 	});
-
+	
 	/*
 	 * Production focused tasks
 	 */
