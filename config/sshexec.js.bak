@@ -1,0 +1,14 @@
+'use strict';
+
+module.exports = {
+	secret: grunt.file.readJSON('secret.json'),
+	uptime : {
+		command : 'uptime',
+		options : {
+			host: '<%= secret.host %>',
+			username: '<%= secret.username %>',
+			password: '<%= secret.password %>',
+			showProgress: true
+		}
+	}
+}; 

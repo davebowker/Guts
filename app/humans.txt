@@ -1,4 +1,4 @@
-/* Git based project framework */
+/* Guts: A project framework */
 	Developer: Dave Bowker
 	Twitter: @davebowker
 	Web: http://davebowker.com

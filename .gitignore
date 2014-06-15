@@ -16,6 +16,7 @@ sitemap.xml
 sitemap.xml.gz
 imgOpt/
 js/vendor/
+secret.json
 
 wordpress/
 twentyten/
