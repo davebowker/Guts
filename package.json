@@ -52,7 +52,8 @@
     "load-grunt-configs": "*",
     "time-grunt": "*",
     "grunt-init": "*",
-    "grunt-ssh": "*"
+    "grunt-ssh": "*",
+    "grunt-shell": "*"
   },
   "scripts": {}
 }
