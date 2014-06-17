@@ -36,11 +36,6 @@ module.exports = function(grunt) {
 		paths : {
 			app : "app/",
 			theme : "app/wp-content/themes/gutsThemeStarter/"
-		},
-		ports : {
-			app : "9000",
-			test : "9001",
-			livereload : "35729"
 		}
 	};
 
