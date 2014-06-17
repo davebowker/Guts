@@ -51,9 +51,8 @@
     "grunt-bump": "*",
     "load-grunt-configs": "*",
     "time-grunt": "*",
-    "grunt-init": "*",
-    "grunt-ssh": "*",
-    "grunt-shell": "*"
+    "grunt-shell": "*",
+    "grunt-ftp-deploy": "*"
   },
   "scripts": {}
 }
