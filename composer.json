@@ -2,7 +2,7 @@
 	"name": "setupGuts",
 	"type": "library",
 	"description": "PHP package installer for Guts Theme",
-	"homepage": "http://roots.io",
+	"homepage": "https://github.com/davebowker/Guts",
 	"license": "MIT",
 	"config": {
 		"vendor-dir": "composer"
