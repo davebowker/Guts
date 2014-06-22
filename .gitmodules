@@ -6,3 +6,7 @@
 	path = app/wp-content/themes/gutsThemeStarter/fonts/genericons
 	url = https://github.com/Automattic/Genericons
 	ignore = dirty
+[submodule "app/wp-content/themes"]
+	path = app/wp-content/themes
+	url = https://github.com/Automattic/_s.git
+	ignore = dirty
