@@ -6,7 +6,6 @@
  * Generate a list of "patch files" for wp-config, and to add into functions.php (eg, load css/js/favicon)
  * Img sprite generation
  * Ask to generate GA code. FBOG. Google Plus Authors. Create a (template) file for the user to use, or automatically insert it
- * Put all the config files into Git GISTS
  * Grunt run composer to get PHP plugins, move into plugin dir
  * Grunt prompt to run setup:
  * 	Author
@@ -20,7 +19,8 @@
  * Grunt skip copying over parent themes -- use _S and create all dirs needed.
  * Create a wp-config file for local and server side dev -- made from answers to prompts
  * Upload a gzipped file, and then unzip it on the server
- *
+ * Create a local and a server side wp-config file
+ * Call the domain name .local
  */
 
 "use strict";
