@@ -5,7 +5,7 @@
 'use strict';
 
 module.exports = {
-	npm-update : {
+	npmUpdate : {
 		command : 'npm update'
 	}
 };

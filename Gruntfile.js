@@ -30,6 +30,7 @@ module.exports = function(grunt) {
 	 * Define variables and set global options
 	 */
 	var options = {
+		secretjson : grunt.config('secret'),
 		pkg : grunt.file.readJSON("package.json"),
 		secret: grunt.file.readJSON('secret.json'),
 		banner : "/*! \n Name:\t\t\t<%= pkg.name %> \n Version:\t\t<%= pkg.version %> \n Updated:\t\t<%= grunt.template.today(\"yyyy-mm-dd hh:mm\") %> \n Author:\t\t<%= pkg.author.name %> \n Author URL:\t<%= pkg.author.url %> \n Issues:\t\t<%= pkg.bugs.url %> \n*/\n",
@@ -93,4 +94,13 @@ module.exports = function(grunt) {
 		grunt.log.oklns("Written app/index.php which tells wordpress that it is in a subdirectory");
 		grunt.log.oklns("********************************************");
 	});
+	
+	// grunt.registerTask("p", function() {
+		// grunt.task.run([
+			// "prompt"
+		// ]);
+		// grunt.log.oklns("<%= secretjson %>********************************************");
+		// grunt.file.write("test.txt", grunt.config('secret')+'<%= pkg.name %> <%= secretjson %> here');
+	// });
+	
 };
