@@ -27,9 +27,6 @@
  * Create a wp-config file for local and server side dev -- made from answers to prompts
  * 
  *
- * TODO: (Optimisation)
- * Better setup. Make it the grunt default task.
- *
  */
 
 "use strict";
@@ -105,13 +102,4 @@ module.exports = function(grunt) {
 			"clean:setup"
 		]);
 	});
-	
-	// grunt.registerTask("p", function() {
-		// grunt.task.run([
-			// "prompt"
-		// ]);
-		// grunt.log.oklns("<%= secretjson %>********************************************");
-		// grunt.file.write("test.txt", grunt.config('secret')+'<%= pkg.name %> <%= secretjson %> here');
-	// });
-	
 };

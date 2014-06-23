@@ -1,5 +1,5 @@
 # Guts
-Guts is a seed starter for working with WordPress (WP). In just a few short commands you have a local setup with a working version of WP contained in it's own directory, with the /wp-content/ directory on the same level as WP.
+Guts is a starter environment for working with WordPress (WP). In just a few short commands you have a local setup with a working version of WP contained in it's own directory, with the /wp-content/ directory on the same level as WP.
 
 ## Get Started
 
@@ -14,6 +14,6 @@ Guts is a seed starter for working with WordPress (WP). In just a few short comm
 	`git clone https://github.com/davebowker/Guts.git . --recursive`
 	
 3. Run `npm install`
-4. Run `grunt setup`
+4. Run `grunt`
 5. Run `grunt watcher`
 6. Go to work

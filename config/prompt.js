@@ -1,17 +1,14 @@
-'use strict';
+"use strict";
 
-module.exports = {	
-    secretjson: {
-      options: {
-        questions: [
-          {
-            config: 'secret', 
-            type: 'input',
-            message: 'Name of your theme',
-            default: 'gutsThemeStarter'
-          }
-        ]
-      }
-    }
-    
+module.exports = {
+	theme: {
+		options: {
+			questions: [{
+				config: "theme.name",
+				type: "input",
+				message: "Name of your theme",
+				default: "gutsThemeStarter"
+			}]
+		}
+	}
 };
