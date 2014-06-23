@@ -1,3 +1,12 @@
+/*! 
+ Name:			gutsThemeStarter 
+ Version:		0.0.2 
+ Updated:		2014-06-23 08:06 
+ Author:		Dave Bowker 
+ Author URL:	http://davebowker.com 
+ Issues:		https://github.com/davebowker/Guts/issues 
+*/
+
 /**
  * hashgrid (jQuery version, adapters are on the way)
  * http://github.com/dotjay/hashgrid

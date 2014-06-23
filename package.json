@@ -1,6 +1,6 @@
 {
   "name": "gutsThemeStarter",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Initial dev environment setup. Haaawww yeaaahhh.",
   "keywords": [
     "dave",
@@ -53,7 +53,8 @@
     "time-grunt": "*",
     "grunt-shell": "*",
     "grunt-ftp-deploy": "*",
-    "grunt-prompt": "*"
+    "grunt-prompt": "*",
+    "grunt-newer": "*"
   },
   "scripts": {}
 }

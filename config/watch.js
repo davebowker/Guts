@@ -3,11 +3,11 @@
 module.exports = {
 	img : {
 		files : '<%= paths.theme %>/img/**/*.*',
-		tasks : ['imagemin']
+		tasks : ['newer:imagemin']
 	},
 	js : {
 		files : '<%= paths.theme %>/js/source/*.js',
-		tasks : ['uglify:dev', 'jshint']
+		tasks : ['newer:uglify:dev', 'newer:jshint']
 	},
 	livereload : {
 		files : ['<%= paths.theme %>/**'],
@@ -17,10 +17,10 @@ module.exports = {
 	},
 	php : {
 		files : ['<%= paths.theme %>/**/*.php'],
-		tasks : ['phplint']
+		tasks : ['newer:phplint']
 	},
 	style : {
-		files : ['<%= paths.theme %>/scss/*.scss', '<%= paths.theme %>/scss/**/*.scss'],
-		tasks : ['compass:dev', 'autoprefixer', 'csslint', 'replace:imagemin']
+		files : ['<%= paths.theme %>/scss/**/*.scss'],
+		tasks : ['compass:dev', 'autoprefixer', 'replace:imagemin', 'csslint']
 	}
 };

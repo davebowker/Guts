@@ -3,7 +3,11 @@
  */
 
 body {
-  background:$bodyBackground;
-	border-radius:10px;
+  background:$bodyBackground url("img/p.png") repeat-y 0 0;
+	border-radius:11px;
+	box-sizing:border-box;
 }
 
+::selection {
+  background:blue;
+}

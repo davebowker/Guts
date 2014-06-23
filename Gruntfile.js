@@ -4,7 +4,6 @@
  * Deploy: Create a dist folder, copy everything across. Minify and link.
  * Deploy: Automatic deployments (Capistrano?)
  * Q&A: Ask for name of theme. Use that variable for creating folders etc. (pkg.name)
- * Test Server: Use grunt-contrib-server to create a local server
  * Bower: Why does is not copy everything? (Bower main?)
  * Compass: Load susy and bourbon
  * Compass: Re-write URLs to use imgOpt/ dir
@@ -48,8 +47,8 @@ module.exports = function(grunt) {
 		secret: grunt.file.readJSON('secret.json'),
 		banner : "/*! \n Name:\t\t\t<%= pkg.name %> \n Version:\t\t<%= pkg.version %> \n Updated:\t\t<%= grunt.template.today(\"yyyy-mm-dd hh:mm\") %> \n Author:\t\t<%= pkg.author.name %> \n Author URL:\t<%= pkg.author.url %> \n Issues:\t\t<%= pkg.bugs.url %> \n*/\n",
 		paths : {
-			app : "app/",
-			theme : "app/wp-content/themes/gutsThemeStarter/"
+			app : "app",
+			theme : "app/wp-content/themes/gutsThemeStarter"
 		}
 	};
 
@@ -82,6 +81,7 @@ module.exports = function(grunt) {
 		grunt.task.run([
 			"imagemin",
 			"compass:prod",
+			"replace:imagemin",
 			"autoprefixer",
 			"uglify:prod",
 			"usebanner:prod",
