@@ -10,6 +10,10 @@
  * Generate a list of "patch files" for wp-config, and to add into functions.php (eg, load css/js/favicon)
  * Img sprite generation
  * Ask to generate GA code. FBOG. Google Plus Authors. Create a (template) file for the user to use, or automatically insert it
+ * Put all the config files into Git GISTS
+ * Grunt run composer to get PHP plugins, move into plugin dir
+ * Grunt newer
+ * 
  *
  * TODO: (Optimisation)
  * Better setup. Make it the grunt default task.
@@ -80,6 +84,7 @@ module.exports = function(grunt) {
 	 * Initial project setup
 	 */
 	grunt.registerTask("default", function() {
+		grunt.log.subhead("Running project setup tasks");
 		grunt.file.write("app/index.php", "<?php define(\"WP_USE_THEMES\",true);require(dirname(__FILE__).\"/wordpress/wp-blog-header.php\");");
 		grunt.task.run([
 			"bower:setup",
@@ -87,12 +92,6 @@ module.exports = function(grunt) {
 			"replace:setup",
 			"clean:setup"
 		]);
-		grunt.log.oklns("********************************************");
-		grunt.log.oklns("Guts has done the following tasks:");
-		grunt.log.oklns("Installed bower components");
-		grunt.log.oklns("Written code to your app/wp-config-sample.php file which points to the app/wp-content/ directory outside of the wordpress folder.");
-		grunt.log.oklns("Written app/index.php which tells wordpress that it is in a subdirectory");
-		grunt.log.oklns("********************************************");
 	});
 	
 	// grunt.registerTask("p", function() {
