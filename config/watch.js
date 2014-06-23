@@ -1,26 +1,26 @@
-'use strict';
+"use strict";
 
 module.exports = {
 	img : {
-		files : '<%= paths.theme %>/img/**/*.*',
-		tasks : ['newer:imagemin']
+		files : "<%= paths.theme %>/img/**/*.*",
+		tasks : ["newer:imagemin"]
 	},
 	js : {
-		files : '<%= paths.theme %>/js/source/*.js',
-		tasks : ['newer:uglify:dev', 'newer:jshint']
+		files : "<%= paths.theme %>/js/source/*.js",
+		tasks : ["newer:uglify:dev", "newer:jshint"]
 	},
 	livereload : {
-		files : ['<%= paths.theme %>/**'],
+		files : ["<%= paths.theme %>/**"],
 		options : {
 			livereload : true
 		}
 	},
 	php : {
-		files : ['<%= paths.theme %>/**/*.php'],
-		tasks : ['newer:phplint']
+		files : ["<%= paths.theme %>/**/*.php"],
+		tasks : ["newer:phplint"]
 	},
 	style : {
-		files : ['<%= paths.theme %>/scss/**/*.scss'],
-		tasks : ['compass:dev', 'autoprefixer', 'replace:imagemin', 'csslint']
+		files : ["<%= paths.theme %>/scss/**/*.scss"],
+		tasks : ["compass:dev", "autoprefixer", "replace:imagemin", "csslint"]
 	}
 };

@@ -1,6 +1,6 @@
 {
   "name": "gutsThemeStarter",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Initial dev environment setup. Haaawww yeaaahhh.",
   "keywords": [
     "dave",
@@ -44,7 +44,7 @@
     "matchdep": "*",
     "node-bourbon": "*",
     "grunt-autoprefixer": "*",
-    "jshint-stylish": "*",
+    "jshint-stylish": "~0.2.0",
     "grunt-bower-task": "*",
     "grunt-phplint": "*",
     "grunt-banner": "*",

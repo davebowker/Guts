@@ -1,8 +1,8 @@
-'use strict';
+"use strict";
 
 module.exports = {
-	files : ['<%= paths.theme %>/style.css'],
+	files : ["<%= paths.theme %>/style.css"],
 	options : {
-		csslintrc : '.csslintrc'
+		csslintrc : ".csslintrc"
 	}
 }; 

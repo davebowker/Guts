@@ -1,14 +1,14 @@
-'use strict';
+"use strict";
 
 module.exports = {
 	options : {
-		phpCmd : 'c:/xampp/php/php.exe',
+		phpCmd : "c:/xampp/php/php.exe",
 		phpArgs : {
-			'-l' : null
+			"-l" : null
 		},
 		spawnLimit : 10
 	},
 	all : [
-		'<%= paths.theme %>/**/*.php'
+		"<%= paths.theme %>/**/*.php"
 	]
 }; 

@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 module.exports = {
 	options : {
@@ -9,9 +9,9 @@ module.exports = {
 	all : {
 		files : [{
 			expand : true,
-			cwd : '<%= paths.theme %>/img',
-			src : ['**/*.{png,jpg,gif,ico}'],
-			dest : '<%= paths.theme %>/imgOpt'
+			cwd : "<%= paths.theme %>/img",
+			src : ["**/*.{png,jpg,gif,ico}"],
+			dest : "<%= paths.theme %>/imgOpt"
 		}]
 	}
 }; 
